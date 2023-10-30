@@ -50,7 +50,7 @@ public class AccountTest {
 
 
     @Test
-    void test_balance_does_not_go_below_0() {
+    void test_balance_does_not_go_below_zero() {
         checking.depositMoney(100.0);
         double actual = checking.withdrawMoney(200.0);
         assertEquals(0.0, actual);

@@ -15,7 +15,7 @@ public class CheckingTest {
     }
 
     @Test
-    public void checking_created_with_initial_balance_of_0() {
+    public void checking_created_with_initial_balance_of_zero() {
         double actual = checking.getBalance();
 
         assertEquals(0.0, actual);
