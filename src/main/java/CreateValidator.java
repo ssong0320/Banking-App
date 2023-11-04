@@ -1,4 +1,10 @@
 public class CreateValidator {
+    private Bank bank;
+
+    public CreateValidator(Bank bank) {
+        this.bank = bank;
+    }
+
     public boolean validate(String command) {
         String[] tokens = command.split("\\s+");
         String accountType = tokens[1];
@@ -13,8 +19,6 @@ public class CreateValidator {
                 try {
                     double cdBalance = Double.parseDouble(tokens[4]);
                     if (cdBalance <= 1000 || cdBalance >= 10000) {
-                        return true;
-                    } else {
                         return false;
                     }
                 } catch (NumberFormatException e) {
@@ -41,8 +45,8 @@ public class CreateValidator {
 
     private boolean isValidAPR(String apr) {
         try {
-            double aprValue = Double.parseDouble(apr.replace("%", ""));
-            if (aprValue <= 10 || aprValue >= 0) {
+            double aprValue = Double.parseDouble(apr);
+            if (aprValue <= 10 && aprValue >= 0) {
                 return true;
             } else {
                 return false;
@@ -55,8 +59,11 @@ public class CreateValidator {
     private boolean isValidAccountID(String accountID) {
         try {
             int id = Integer.parseInt(accountID);
-            if (accountID.length() == 8) {
-                return true;
+            if (bank.getAccountThroughBank(accountID) != null) {
+                return false;
+            }
+            if (accountID.length() != 8) {
+                return false;
             }
         } catch (NumberFormatException e) {
             return false;

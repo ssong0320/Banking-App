@@ -2,20 +2,20 @@ public class CommandValidator {
     private CreateValidator createValidator;
     private DepositValidator depositValidator;
 
-    public CommandValidator() {
-        createValidator = new CreateValidator();
-        depositValidator = new DepositValidator();
+    public CommandValidator(Bank bank) {
+        createValidator = new CreateValidator(bank);
+        depositValidator = new DepositValidator(bank);
     }
 
     public boolean validate(String command) {
         String[] tokens = command.split("\\s+");
         String commandType = tokens[0];
-        if (commandType != "Create" || commandType != "Deposit") {
+        if (!"Create".equals(commandType) && !"Deposit".equals(commandType)) {
             return false;
         }
-        if (commandType == "Create") {
+        if ("Create".equals(commandType)) {
             return createValidator.validate(command);
-        } else if (commandType == "Deposit") {
+        } else if ("Deposit".equals(commandType)) {
             return depositValidator.validate(command);
         }
 

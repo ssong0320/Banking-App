@@ -1,7 +1,7 @@
 public class DepositValidator {
     private Bank bank;
 
-    public DepositValidator() {
+    public DepositValidator(Bank bank) {
         this.bank = bank;
     }
 
@@ -14,16 +14,18 @@ public class DepositValidator {
 
         String accountID = tokens[1];
         String amountStr = tokens[2];
+
         try {
             double amount = Double.parseDouble(amountStr);
+            Account account = bank.getAccountThroughBank(accountID);
 
-            if (("savings".equals(bank.getAccountThroughBank(accountID).toString()))) {
+            if (account.equals("savings")) {
                 if (amount >= 0 && amount <= 2500) {
                     return true;
                 } else {
                     return false;
                 }
-            } else if (("checking".equals(bank.getAccountThroughBank(accountID).toString()))) {
+            } else if (account.equals("checking")) {
                 if (amount >= 0 && amount <= 1000) {
                     return true;
                 } else {
