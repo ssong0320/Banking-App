@@ -54,6 +54,11 @@ public class CreateValidator {
     }
 
     private boolean isValidAccountID(String accountID) {
-        return accountID.matches("\\d{8}");
+        try {
+            double ID = Double.parseDouble(accountID);
+            return accountID.matches("\\d{8}");
+        } catch (NumberFormatException e) {
+            return false;
+        }
     }
 }
