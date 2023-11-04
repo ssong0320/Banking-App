@@ -33,7 +33,6 @@ public class CreateValidator {
             return false;
         }
 
-        // Validate APR
         if (!isValidAPR(apr)) {
             return false;
         }
