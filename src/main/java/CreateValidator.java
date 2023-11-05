@@ -31,7 +31,7 @@ public class CreateValidator {
                 }
                 break;
             case "checking":
-            case "savings":
+            case "saving":
                 if (tokens.length != 4) {
                     return false;
                 }
@@ -64,17 +64,16 @@ public class CreateValidator {
     private boolean isValidAccountID(String accountID) {
         try {
             int id = Integer.parseInt(accountID);
-            if (accountID.length() != 8) {
-                return false;
-            }
-            if (bank.getAccountThroughBank(accountID) != null) {
-                return false;
-            }
-            return false;
         } catch (NumberFormatException e) {
             return false;
-
         }
+        if (accountID.length() != 8) {
+            return false;
+        }
+        if (bank.getAccountThroughBank(accountID) != null) {
+            return false;
+        }
+        return true;
     }
 }
 
