@@ -7,7 +7,12 @@ public class CreateValidator {
 
     public boolean validate(String command) {
         String[] tokens = command.split("\\s+");
-        String accountType = tokens[1];
+
+        if (tokens.length < 4) {
+            return false;
+        }
+
+        String accountType = tokens[1].toLowerCase();
         String accountID = tokens[2];
         String apr = tokens[3];
 
@@ -24,6 +29,7 @@ public class CreateValidator {
                 } catch (NumberFormatException e) {
                     return false;
                 }
+                break;
             case "checking":
             case "savings":
                 if (tokens.length != 4) {
@@ -36,7 +42,6 @@ public class CreateValidator {
         if (!isValidAccountID(accountID)) {
             return false;
         }
-
         if (!isValidAPR(apr)) {
             return false;
         }
@@ -46,7 +51,7 @@ public class CreateValidator {
     private boolean isValidAPR(String apr) {
         try {
             double aprValue = Double.parseDouble(apr);
-            if (aprValue <= 10 && aprValue >= 0) {
+            if (aprValue >= 0 && aprValue <= 10) {
                 return true;
             } else {
                 return false;
@@ -59,15 +64,18 @@ public class CreateValidator {
     private boolean isValidAccountID(String accountID) {
         try {
             int id = Integer.parseInt(accountID);
-            if (bank.getAccountThroughBank(accountID) != null) {
-                return false;
-            }
             if (accountID.length() != 8) {
                 return false;
             }
+            if (bank.getAccountThroughBank(accountID) != null) {
+                return false;
+            }
+            return false;
         } catch (NumberFormatException e) {
             return false;
+
         }
-        return false;
     }
 }
+
+

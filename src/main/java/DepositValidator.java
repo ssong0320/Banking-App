@@ -19,13 +19,13 @@ public class DepositValidator {
             double amount = Double.parseDouble(amountStr);
             Account account = bank.getAccountThroughBank(accountID);
 
-            if (account.equals("savings")) {
+            if (account.toString().equalsIgnoreCase("savings")) {
                 if (amount >= 0 && amount <= 2500) {
                     return true;
                 } else {
                     return false;
                 }
-            } else if (account.equals("checking")) {
+            } else if (account.toString().equalsIgnoreCase("checking")) {
                 if (amount >= 0 && amount <= 1000) {
                     return true;
                 } else {
