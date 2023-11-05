@@ -33,5 +33,4 @@ public abstract class Account {
             return 0;
         }
     }
-
 }

@@ -15,20 +15,26 @@ public class DepositValidator {
         String accountID = tokens[1];
         String amountStr = tokens[2];
 
+
+        if (!isValidAccountID(accountID)) {
+            return false;
+        }
+
         try {
             double amount = Double.parseDouble(amountStr);
             Account account = bank.getAccountThroughBank(accountID);
 
-            if (account.toString().equalsIgnoreCase("saving")) {
-                if (amount >= 0 && amount <= 2500) {
-                    return true;
-                } else {
+            if (account == null) {
+                return false;
+            }
+
+            if (account instanceof Saving) {
+                if (amount < 0 || amount > 2500) {
                     return false;
                 }
-            } else if (account.toString().equalsIgnoreCase("checking")) {
-                if (amount >= 0 && amount <= 1000) {
-                    return true;
-                } else {
+            }
+            if (account instanceof Checking) {
+                if (amount < 0 || amount > 1000) {
                     return false;
                 }
             } else {
@@ -37,5 +43,18 @@ public class DepositValidator {
         } catch (NumberFormatException e) {
             return false;
         }
+        return true;
+    }
+
+    private boolean isValidAccountID(String accountID) {
+        try {
+            int id = Integer.parseInt(accountID);
+        } catch (NumberFormatException e) {
+            return false;
+        }
+        if (accountID.length() != 8) {
+            return false;
+        }
+        return true;
     }
 }

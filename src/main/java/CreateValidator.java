@@ -23,7 +23,7 @@ public class CreateValidator {
                 }
                 try {
                     double cdBalance = Double.parseDouble(tokens[4]);
-                    if (cdBalance <= 1000 || cdBalance >= 10000) {
+                    if (cdBalance < 1000 || cdBalance > 10000) {
                         return false;
                     }
                 } catch (NumberFormatException e) {
