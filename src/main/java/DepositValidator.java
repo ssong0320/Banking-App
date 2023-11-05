@@ -32,8 +32,7 @@ public class DepositValidator {
                 if (amount < 0 || amount > 2500) {
                     return false;
                 }
-            }
-            if (account instanceof Checking) {
+            } else if (account instanceof Checking) {
                 if (amount < 0 || amount > 1000) {
                     return false;
                 }

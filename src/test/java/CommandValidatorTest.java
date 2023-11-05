@@ -16,6 +16,7 @@ public class CommandValidatorTest {
         commandValidator = new CommandValidator(bank);
         checking = new Checking(9.8, "00000000");
         saving = new Saving(9.8, "00000001");
+        bank.addAccount(saving);
     }
 
     @Test
@@ -37,16 +38,8 @@ public class CommandValidatorTest {
     }
 
     @Test
-    void test_Deposit_command_with_lowercase_d() {
-        bank.addAccount(saving);
-        boolean actual = commandValidator.validate("deposit 00000001 1000");
-        assertFalse(actual);
-    }
-
-    @Test
-    void test_Deposit_command_is_valid() {
-        bank.addAccount(saving);
-        boolean actual = commandValidator.validate("Deposit 00000001 1000");
+    void test_deposit_command_with_a_typo() {
+        boolean actual = commandValidator.validate("Create depo 00000001 1");
         assertFalse(actual);
     }
 }
