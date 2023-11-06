@@ -39,7 +39,7 @@ public class CommandValidatorTest {
 
     @Test
     void test_deposit_command_with_a_typo() {
-        boolean actual = commandValidator.validate("Create depo 00000001 1");
+        boolean actual = commandValidator.validate("depo 00000001 1");
         assertFalse(actual);
     }
 }
