@@ -28,11 +28,13 @@ public class DepositValidator {
                 return false;
             }
 
-            if (account instanceof Saving) {
+            String accountType = account.getAccountType().toLowerCase();
+
+            if ("saving".equals(accountType)) {
                 if (amount < 0 || amount > 2500) {
                     return false;
                 }
-            } else if (account instanceof Checking) {
+            } else if ("checking".equals(accountType)) {
                 if (amount < 0 || amount > 1000) {
                     return false;
                 }

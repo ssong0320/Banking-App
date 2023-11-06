@@ -2,6 +2,7 @@ public abstract class Account {
     private double APR;
     private double balance;
     private String ID;
+    private String accountType;
 
     public Account(double APR, double balance, String ID) {
         this.APR = APR;
@@ -23,6 +24,14 @@ public abstract class Account {
 
     public double depositMoney(double amount) {
         return balance += amount;
+    }
+
+    public String getAccountType() {
+        return this.accountType;
+    }
+
+    public void setAccountType(String type) {
+        this.accountType = type;
     }
 
     public double withdrawMoney(double amount) {
