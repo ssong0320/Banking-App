@@ -14,6 +14,7 @@ public class CreateValidatorTest {
         bank = new Bank();
         createValidator = new CreateValidator(bank);
         checking = new Checking(9.8, "11111111");
+        bank.addAccount(checking);
     }
 
     @Test
@@ -103,7 +104,7 @@ public class CreateValidatorTest {
     @Test
     void test_if_duplicate_id_is_possible() {
         boolean actual = createValidator.validate("Create checking 11111111 0.1");
-        assertTrue(actual);
+        assertFalse(actual);
     }
 
     @Test
