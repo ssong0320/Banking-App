@@ -7,6 +7,7 @@ public class CommandProcessorTest {
     CommandProcessor commandProcessor;
     Bank bank;
 
+
     @BeforeEach
     void setUP() {
         bank = new Bank();
@@ -16,8 +17,8 @@ public class CommandProcessorTest {
     @Test
     void test_if_checking_account_can_be_created_correctly() {
         commandProcessor.evaluateCommand("create checking 12345678 1.0");
-        assertEquals(1, bank.getAccounts().size());
         Account account = bank.getAccountThroughBank("12345678");
+        assertEquals("12345678", account.getID());
         assertEquals("checking", account.getAccountType());
         assertEquals(1.0, account.getAPR());
     }
@@ -25,8 +26,8 @@ public class CommandProcessorTest {
     @Test
     void test_if_saving_account_can_be_created_correctly() {
         commandProcessor.evaluateCommand("create saving 12345678 1.0");
-        assertEquals(1, bank.getAccounts().size());
         Account account = bank.getAccountThroughBank("12345678");
+        assertEquals("12345678", account.getID());
         assertEquals("saving", account.getAccountType());
         assertEquals(1.0, account.getAPR());
     }
@@ -34,8 +35,8 @@ public class CommandProcessorTest {
     @Test
     void test_if_cd_account_can_be_created_correctly() {
         commandProcessor.evaluateCommand("create cd 12345678 1.0 1000");
-        assertEquals(1, bank.getAccounts().size());
         Account account = bank.getAccountThroughBank("12345678");
+        assertEquals("12345678", account.getID());
         assertEquals("cd", account.getAccountType());
         assertEquals(1.0, account.getAPR());
         assertEquals(1000, account.getBalance());
