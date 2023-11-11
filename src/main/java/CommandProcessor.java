@@ -5,6 +5,27 @@ public class CommandProcessor {
         this.bank = bank;
     }
 
+    public void evaluateCommand(String command) {
+        String[] tokens = command.split("\\s+");
+        String commandType = tokens[0].toLowerCase();
+        if ("create".equals(commandType)) {
+            String accountType = tokens[1].toLowerCase();
+            switch (accountType) {
+                case "checking":
+                    processCreateChecking(command);
+                    break;
+                case "saving":
+                    processCreateSaving(command);
+                    break;
+                case "cd":
+                    processCreateCD(command);
+            }
+
+        } else if ("deposit".equals(commandType)) {
+            processDeposit(command);
+        }
+    }
+
     public void processCreateChecking(String command) {
         String[] tokens = command.split("\\s+");
         Checking checking = new Checking(Double.parseDouble(tokens[3]), tokens[2]);

@@ -2,17 +2,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class StoreCommands {
-    private List<String> commands;
+    private List<String> invalidCommands;
 
     public StoreCommands() {
-        this.commands = new ArrayList<>();
+        this.invalidCommands = new ArrayList<>();
     }
 
     public void addInvalidCommand(String command) {
-        commands.add(command);
+        invalidCommands.add(command);
     }
 
     public List<String> getAllCommands() {
-        return new ArrayList<>(commands);
+        return new ArrayList<>(invalidCommands);
     }
 }
