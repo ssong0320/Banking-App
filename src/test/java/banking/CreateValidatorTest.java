@@ -195,7 +195,7 @@ public class CreateValidatorTest {
 
     @Test
     void test_case_insensitivity_for_account_for_cd() {
-        boolean actual = createValidator.validate("Create banking.CD 12345678 1.2 1000");
+        boolean actual = createValidator.validate("Create CD 12345678 1.2 1000");
         assertTrue(actual);
     }
 }
