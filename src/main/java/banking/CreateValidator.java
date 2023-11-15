@@ -1,3 +1,5 @@
+package banking;
+
 public class CreateValidator {
     private Bank bank;
 
