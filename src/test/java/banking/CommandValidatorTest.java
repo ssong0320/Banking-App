@@ -44,4 +44,10 @@ public class CommandValidatorTest {
         boolean actual = commandValidator.validate("depo 00000001 1");
         assertFalse(actual);
     }
+
+    @Test
+    void test_deposit_command() {
+        boolean actual = commandValidator.validate("deposit 00000001 1000");
+        assertTrue(actual);
+    }
 }
