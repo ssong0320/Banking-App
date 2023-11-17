@@ -103,6 +103,30 @@ public class DepositValidatorTest {
         assertFalse(actual);
     }
 
+    @Test
+    void test_if_amount_at_upper_limit_can_be_deposited_into_saving() {
+        boolean actual = depositValidator.validate("Deposit 22222222 2500");
+        assertTrue(actual);
+    }
+
+    @Test
+    void test_if_amount_at_upper_limit_can_be_deposited_into_checking() {
+        boolean actual = depositValidator.validate("Deposit 11111111 1000");
+        assertTrue(actual);
+    }
+
+    @Test
+    void test_if_negative_amount_just_below_lower_limit_is_rejected_saving() {
+        boolean actual = depositValidator.validate("Deposit 22222222 -1");
+        assertFalse(actual);
+    }
+
+    @Test
+    void test_if_negative_amount_just_below_lower_limit_is_rejected_checking() {
+        boolean actual = depositValidator.validate("Deposit 11111111 -1");
+        assertFalse(actual);
+    }
+
 }
 
 
