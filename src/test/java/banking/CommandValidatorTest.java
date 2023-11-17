@@ -50,4 +50,28 @@ public class CommandValidatorTest {
         boolean actual = commandValidator.validate("deposit 00000001 1000");
         assertTrue(actual);
     }
+
+    @Test
+    void test_invalid_deposit_command() {
+        boolean actual = commandValidator.validate("deposit 00000001 abc");
+        assertFalse(actual);
+    }
+
+    @Test
+    void test_deposit_non_existing_account() {
+        boolean actual = commandValidator.validate("deposit 00000002 1000");
+        assertFalse(actual);
+    }
+
+    @Test
+    void test_zero_deposit_amount() {
+        boolean actual = commandValidator.validate("deposit 00000001 0");
+        assertTrue(actual);
+    }
+
+    @Test
+    void test_negative_deposit_amount() {
+        boolean actual = commandValidator.validate("deposit 00000001 -100");
+        assertFalse(actual);
+    }
 }
