@@ -127,6 +127,35 @@ public class DepositValidatorTest {
         assertFalse(actual);
     }
 
+    @Test
+    void test_if_you_can_deposit_multiple_times_in_an_account() {
+        assertTrue(depositValidator.validate("Deposit 11111111 500"));
+        assertTrue(depositValidator.validate("Deposit 11111111 300"));
+    }
+
+    @Test
+    void test_if_missing_deposit_fails() {
+        boolean actual = depositValidator.validate("11111111 500");
+        assertFalse(actual);
+    }
+
+    @Test
+    void test_if_missing_id_fails() {
+        boolean actual = depositValidator.validate("deposit 100");
+        assertFalse(actual);
+    }
+
+    @Test
+    void test_if_missing_amount_fails() {
+        boolean actual = depositValidator.validate("Deposit 11111111");
+        assertFalse(actual);
+    }
+
+    @Test
+    void test_depositing_into_account_that_does_not_exist() {
+        boolean actual = depositValidator.validate("Deposit 12345678 1000");
+        assertFalse(actual);
+    }
 }
 
 
