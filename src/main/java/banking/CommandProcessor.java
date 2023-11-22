@@ -25,6 +25,8 @@ public class CommandProcessor {
 
         } else if ("deposit".equals(commandType)) {
             processDeposit(command);
+        } else if ("pass".equals(commandType)) {
+            processPassTime(command);
         }
     }
 
@@ -49,6 +51,11 @@ public class CommandProcessor {
     public void processDeposit(String command) {
         String[] tokens = command.split("\\s+");
         bank.depositThroughId(tokens[1], Double.parseDouble(tokens[2]));
+    }
+
+    public void processPassTime(String command) {
+        String[] tokens = command.split("\\s+");
+        bank.passTime(Integer.parseInt(tokens[1]));
     }
 
 }

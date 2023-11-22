@@ -5,6 +5,7 @@ import java.util.Map;
 
 public class Bank {
     private Map<String, Account> accounts;
+    private int months;
 
     Bank() {
         accounts = new HashMap<>();
@@ -30,5 +31,15 @@ public class Bank {
 
     public Account getAccountThroughBank(String id) {
         return accounts.get(id);
+    }
+
+    public void removeAccount(String id) {
+        if (accounts.containsKey(id)) {
+            accounts.remove(id);
+        }
+    }
+
+    public void passTime(int months) {
+        this.months += months;
     }
 }
