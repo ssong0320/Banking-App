@@ -3,10 +3,12 @@ package banking;
 public class CommandValidator {
     private CreateValidator createValidator;
     private DepositValidator depositValidator;
+    private PassTimeValidator passTimeValidator;
 
     public CommandValidator(Bank bank) {
         createValidator = new CreateValidator(bank);
         depositValidator = new DepositValidator(bank);
+        passTimeValidator = new PassTimeValidator(bank);
     }
 
     public boolean validate(String command) {
@@ -16,6 +18,8 @@ public class CommandValidator {
             return createValidator.validate(command);
         } else if ("deposit".equals(commandType)) {
             return depositValidator.validate(command);
+        } else if ("pass".equals(commandType)) {
+            return passTimeValidator.validate(command);
         }
         return false;
     }
