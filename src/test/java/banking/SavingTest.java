@@ -1,25 +1,26 @@
+package banking;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class CheckingTest {
+public class SavingTest {
 
     public static final double APR_VALUE = 9.8;
 
-    Checking checking;
+    Saving saving;
 
     @BeforeEach
     public void setUp() {
-        checking = new Checking(APR_VALUE, "9797987");
+        saving = new Saving(APR_VALUE, "12345678");
     }
 
     @Test
     public void checking_created_with_initial_balance_of_zero() {
-        double actual = checking.getBalance();
+        double actual = saving.getBalance();
 
         assertEquals(0.0, actual);
     }
 
 }
-

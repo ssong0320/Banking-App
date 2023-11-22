@@ -1,3 +1,5 @@
+package banking;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -194,6 +196,18 @@ public class CreateValidatorTest {
     @Test
     void test_case_insensitivity_for_account_for_cd() {
         boolean actual = createValidator.validate("Create CD 12345678 1.2 1000");
+        assertTrue(actual);
+    }
+
+    @Test
+    void test_lowest_apr_and_balance_for_cd() {
+        boolean actual = createValidator.validate("Create cd 12345678 0 1000");
+        assertTrue(actual);
+    }
+
+    @Test
+    void test_highest_apr_and_balance_for_cd() {
+        boolean actual = createValidator.validate("Create cd 12345678 10 10000");
         assertTrue(actual);
     }
 }

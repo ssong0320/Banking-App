@@ -1,3 +1,5 @@
+package banking;
+
 public class CommandValidator {
     private CreateValidator createValidator;
     private DepositValidator depositValidator;
@@ -10,15 +12,11 @@ public class CommandValidator {
     public boolean validate(String command) {
         String[] tokens = command.split("\\s+");
         String commandType = tokens[0].toLowerCase();
-        if (!"create".equals(commandType) && !"deposit".equals(commandType)) {
-            return false;
-        }
         if ("create".equals(commandType)) {
             return createValidator.validate(command);
         } else if ("deposit".equals(commandType)) {
             return depositValidator.validate(command);
         }
-
         return false;
     }
 }
