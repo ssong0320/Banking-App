@@ -10,15 +10,25 @@ public class PassTimeValidator {
     public boolean validate(String command) {
         String[] tokens = command.split("\\s+");
 
-        if (tokens.length != 2) {
+        if (tokens.length == 2) {
+            return validateMonth(tokens[1]);
+        } else {
             return false;
         }
-
-        int Months = Integer.parseInt(tokens[1]);
-
-        if (Months < 0 && Months > 60) {
-            return false;
-        }
-        return true;
     }
+
+    public boolean validateMonth(String command) {
+
+        try {
+            Integer.valueOf(command);
+        } catch (NumberFormatException ex) {
+            return false;
+        }
+        int newMonths = Integer.valueOf(command);
+
+        return newMonths >= 1 && newMonths <= 60;
+
+    }
+
+
 }
