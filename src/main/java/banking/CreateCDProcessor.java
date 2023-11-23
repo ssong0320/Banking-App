@@ -1,0 +1,15 @@
+package banking;
+
+public class CreateCDProcessor {
+    private Bank bank;
+
+    public CreateCDProcessor(Bank bank) {
+        this.bank = bank;
+    }
+
+    public void processCreateCD(String command) {
+        String[] tokens = command.split("\\s+");
+        CD cd = new CD(Double.parseDouble(tokens[3]), Double.parseDouble(tokens[4]), tokens[2]);
+        bank.addAccount(cd);
+    }
+}

@@ -2,9 +2,20 @@ package banking;
 
 public class CommandProcessor {
     private Bank bank;
+    private CreateCDProcessor createCDProcessor;
+    private CreateCheckingProcessor createCheckingProcessor;
+    private CreateSavingsProcessor createSavingsProcessor;
+    private DepositProcessor depositProcessor;
+    private PassTimeProcessor passTimeProcessor;
 
     public CommandProcessor(Bank bank) {
         this.bank = bank;
+        this.createCDProcessor = new CreateCDProcessor(bank);
+        this.createCheckingProcessor = new CreateCheckingProcessor(bank);
+        this.createSavingsProcessor = new CreateSavingsProcessor(bank);
+        this.depositProcessor = new DepositProcessor(bank);
+        this.passTimeProcessor = new PassTimeProcessor(bank);
+
     }
 
     public void evaluateCommand(String command) {
@@ -14,48 +25,20 @@ public class CommandProcessor {
             String accountType = tokens[1].toLowerCase();
             switch (accountType) {
                 case "checking":
-                    processCreateChecking(command);
+                    createCheckingProcessor.processCreateChecking(command);
                     break;
                 case "saving":
-                    processCreateSaving(command);
+                    createSavingsProcessor.processCreateSaving(command);
                     break;
                 case "cd":
-                    processCreateCD(command);
+                    createCDProcessor.processCreateCD(command);
             }
 
         } else if ("deposit".equals(commandType)) {
-            processDeposit(command);
+            depositProcessor.processDeposit(command);
         } else if ("pass".equals(commandType)) {
-            processPassTime(command);
+            passTimeProcessor.processPassTime(command);
         }
-    }
-
-    public void processCreateChecking(String command) {
-        String[] tokens = command.split("\\s+");
-        Checking checking = new Checking(Double.parseDouble(tokens[3]), tokens[2]);
-        bank.addAccount(checking);
-    }
-
-    public void processCreateSaving(String command) {
-        String[] tokens = command.split("\\s+");
-        Saving saving = new Saving(Double.parseDouble(tokens[3]), tokens[2]);
-        bank.addAccount(saving);
-    }
-
-    public void processCreateCD(String command) {
-        String[] tokens = command.split("\\s+");
-        CD cd = new CD(Double.parseDouble(tokens[3]), Double.parseDouble(tokens[4]), tokens[2]);
-        bank.addAccount(cd);
-    }
-
-    public void processDeposit(String command) {
-        String[] tokens = command.split("\\s+");
-        bank.depositThroughId(tokens[1], Double.parseDouble(tokens[2]));
-    }
-
-    public void processPassTime(String command) {
-        String[] tokens = command.split("\\s+");
-        bank.passTime(Integer.parseInt(tokens[1]));
     }
 
 }

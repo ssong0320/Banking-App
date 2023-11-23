@@ -20,6 +20,7 @@ public class WithdrawValidator {
         if (!isValidAccountID(accountID)) {
             return false;
         }
+        return true;
     }
 
     private boolean isValidAccountID(String accountID) {
