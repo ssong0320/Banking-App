@@ -67,4 +67,28 @@ public class CommandProcessorTest {
         Account account = bank.getAccountThroughBank("12345678");
         assertEquals(3500, account.getBalance());
     }
+
+    @Test
+    void calculate_apr_after_one_month_checking_account() {
+        commandProcessor.evaluateCommand("create checking 12345678 0.06");
+        commandProcessor.evaluateCommand("deposit 12345678 1000");
+        commandProcessor.evaluateCommand("pass 1");
+        assertEquals(1000.05, bank.getAccount().get("12345678").getBalance());
+    }
+
+    @Test
+    void calculate_apr_after_twelve_month_checking_account() {
+        commandProcessor.evaluateCommand("create checking 12345678 0.06");
+        commandProcessor.evaluateCommand("deposit 12345678 1000");
+        commandProcessor.evaluateCommand("pass 12");
+        assertEquals(1000.6001650275032, bank.getAccount().get("12345678").getBalance());
+    }
+
+    @Test
+    void calculate_cd_account_apr_after_twelve_month() {
+        commandProcessor.evaluateCommand("create cd 12345678 0.01 1000");
+        commandProcessor.evaluateCommand("pass 12");
+        assertEquals(1000.4000783433436, bank.getAccount().get("12345678").getBalance());
+    }
+
 }

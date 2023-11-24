@@ -24,6 +24,7 @@ public class Bank {
 
     public void addAccount(Account account) {
         accounts.put(account.getID(), account);
+        accountOrder.add(account.getID());
     }
 
     public void depositThroughId(String id, double amount) {

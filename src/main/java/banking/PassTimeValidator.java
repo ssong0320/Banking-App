@@ -29,6 +29,4 @@ public class PassTimeValidator {
         return newMonths >= 1 && newMonths <= 60;
 
     }
-
-
 }

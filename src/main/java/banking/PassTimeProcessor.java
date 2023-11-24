@@ -10,6 +10,8 @@ public class PassTimeProcessor {
 
     public void processPassTime(String command) {
         String[] tokens = command.split("\\s+");
-        bank.passTime(Integer.parseInt(tokens[1]));
+        int months = Integer.parseInt(tokens[1]);
+        bank.pass(months);
+
     }
 }
