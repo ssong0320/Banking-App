@@ -1,10 +1,11 @@
 package banking;
 
 public abstract class Account {
-    private double APR;
-    private double balance;
-    private String ID;
-    private String accountType;
+    public double APR;
+    public double balance;
+    public String ID;
+    public String accountType;
+    int age = 0;
 
     public Account(double APR, double balance, String ID) {
         this.APR = APR;
@@ -44,4 +45,29 @@ public abstract class Account {
             return 0;
         }
     }
+
+    public int getMonths() {
+        return age;
+    }
+
+    public void setMonths(int months) {
+        this.age = months;
+    }
+
+    public void calculateApr(int months) {
+        age = age + months;
+
+        if (accountType.equalsIgnoreCase("cd")) {
+            for (int month = 0; month < months; month++) {
+                for (int calculation = 0; calculation < 4; calculation++) {
+                    balance = balance + ((APR / 100) / 12) * balance;
+                }
+            }
+        } else {
+            for (int month = 0; month < months; month++) {
+                balance = balance + ((APR / 100) / 12) * balance;
+            }
+        }
+    }
+
 }

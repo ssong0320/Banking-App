@@ -1,15 +1,22 @@
 package banking;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class Bank {
-    private Map<String, Account> accounts;
-    private int months;
+    private final ArrayList<String> accountOrder = new ArrayList<>();
+    private final HashMap<String, Account> accounts = new HashMap<>();
 
-    Bank() {
-        accounts = new HashMap<>();
+    HashMap<String, Account> getAccount() {
+        return accounts;
     }
+
+    public List<String> getAccountOrder() {
+        return accountOrder;
+    }
+
 
     public Map<String, Account> getAccounts() {
         return accounts;
@@ -33,13 +40,23 @@ public class Bank {
         return accounts.get(id);
     }
 
-    public void removeAccount(String id) {
-        if (accounts.containsKey(id)) {
-            accounts.remove(id);
+    public void pass(int months) {
+        List<String> accountClose = new ArrayList<>();
+
+        for (String ID : accounts.keySet()) {
+            Account account = accounts.get(ID);
+            if (account.balance == 0) {
+                accountClose.add(ID);
+                continue;
+            }
+            account.calculateApr(months);
+        }
+
+        for (String ID : accountClose) {
+            accounts.remove(ID);
+            accountOrder.remove(ID);
         }
     }
 
-    public void passTime(int months) {
-        this.months += months;
-    }
+
 }
