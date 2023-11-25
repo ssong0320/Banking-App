@@ -46,6 +46,10 @@ public class Bank {
 
         for (String ID : accounts.keySet()) {
             Account account = accounts.get(ID);
+            if (account.balance < 100 && account.balance > 0) {
+                account.balance -= 25;
+            }
+
             if (account.balance == 0) {
                 accountClose.add(ID);
                 continue;
