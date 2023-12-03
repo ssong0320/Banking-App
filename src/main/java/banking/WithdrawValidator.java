@@ -8,30 +8,44 @@ public class WithdrawValidator {
     }
 
     public boolean validate(String command) {
-        String[] tokens = command.split("\\s+");
+        String[] tokens = command.split(" ");
 
-        if (tokens.length != 3) {
-            return false;
+        if (validateAccountExistInBank(tokens[1], bank)) {
+            if (validateChecking(tokens[1], bank)) {
+                return withdrawCommandCheckingValidate(tokens[2]);
+            } else if (validateSaving(tokens[1], bank)) {
+                return withdrawCommandSavingValidate(tokens[2]) && validateMonth(tokens[1]);
+            } else if (validateCd(tokens[1], bank)) {
+                return withdrawCommandCdValidate(tokens[1]) && validateMonthTwelve(tokens[1]);
+            }
         }
-
-        String accountID = tokens[1];
-        String amountStr = tokens[2];
-
-        if (!isValidAccountID(accountID)) {
-            return false;
-        }
-        return true;
+        return false;
     }
 
-    private boolean isValidAccountID(String accountID) {
-        try {
-            int id = Integer.parseInt(accountID);
-        } catch (NumberFormatException e) {
-            return false;
-        }
-        if (accountID.length() != 8) {
-            return false;
-        }
-        return true;
+
+    public boolean withdrawCommandCheckingValidate(String command) {
+        double amount = isDouble(command);
+        return (amount >= 0 && amount <= 400);
+    }
+
+    public boolean withdrawCommandSavingValidate(String command) {
+        double amount = isDouble(command);
+        return (amount >= 0 && amount <= 1000);
+    }
+
+    public boolean withdrawCommandCdValidate(String command) {
+        double amount = isDouble(command);
+        double balance = bank.getAccount().get(command).getBalance();
+        return amount >= balance;
+    }
+
+    public boolean validateMonthTwelve(String command) {
+        int number = bank.getAccount().get(command).getMonths();
+        return number >= 12 && number % 12 == 0;
+    }
+
+    public boolean validateMonth(String command) {
+        Saving account = (Saving) bank.getAccount().get(command);
+        return !account.getMonthWithdrawal();
     }
 }

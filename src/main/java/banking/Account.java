@@ -38,11 +38,12 @@ public abstract class Account {
     }
 
     public double withdrawMoney(double amount) {
-        if (amount <= balance) {
-            balance -= amount;
+        if ((balance - amount) < 0.0) {
+            balance = 0.0;
             return balance;
         } else {
-            return 0;
+            balance = balance - amount;
+            return balance - amount;
         }
     }
 

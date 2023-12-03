@@ -7,6 +7,7 @@ public class CommandProcessor {
     private CreateSavingsProcessor createSavingsProcessor;
     private DepositProcessor depositProcessor;
     private PassTimeProcessor passTimeProcessor;
+    private WithdrawProcessor withdrawProcessor;
 
     public CommandProcessor(Bank bank) {
         this.bank = bank;
@@ -15,7 +16,7 @@ public class CommandProcessor {
         this.createSavingsProcessor = new CreateSavingsProcessor(bank);
         this.depositProcessor = new DepositProcessor(bank);
         this.passTimeProcessor = new PassTimeProcessor(bank);
-
+        this.withdrawProcessor = new WithdrawProcessor(bank);
     }
 
     public void evaluateCommand(String command) {
@@ -38,6 +39,8 @@ public class CommandProcessor {
             depositProcessor.processDeposit(command);
         } else if ("pass".equals(commandType)) {
             passTimeProcessor.processPassTime(command);
+        } else if ("withdraw".equals(commandType)) {
+            withdrawProcessor.processWithdraw(commandType);
         }
     }
 
