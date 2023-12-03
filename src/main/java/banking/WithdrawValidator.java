@@ -7,82 +7,69 @@ public class WithdrawValidator {
         this.bank = bank;
     }
 
-    public static double isDouble(String str) {
+    public boolean validate(String command) {
+        String[] tokens = command.split("\\s+");
+
+        if (tokens.length < 3) {
+            return false;
+        }
+
+        String accountID = tokens[1];
+        String amountToWithdraw = tokens[2];
+
+        if (!isValidAccountID(accountID)) {
+            return false;
+        }
+
+        Account account = bank.getAccountThroughBank(accountID);
+        if (account == null) {
+            return false;
+        }
+
+        switch (account.getAccountType()) {
+            case "checking":
+                return validateCheckingWithdraw(amountToWithdraw);
+            case "saving":
+                return validateSavingWithdraw(account, amountToWithdraw);
+            case "cd":
+                return validateCDWithdraw(account, amountToWithdraw) && validateMonthTwelve(tokens[1]);
+            default:
+                return false;
+        }
+    }
+
+    private boolean isValidAccountID(String accountID) {
+        try {
+            int id = Integer.parseInt(accountID);
+        } catch (NumberFormatException e) {
+            return false;
+        }
+        return accountID.length() == 8;
+    }
+
+    private boolean validateCheckingWithdraw(String amountToWithdraw) {
+        double amount = isDouble(amountToWithdraw);
+        return (amount >= 0 && amount <= 400);
+    }
+
+    private boolean validateSavingWithdraw(Account account, String amountToWithdraw) {
+        double amount = isDouble(amountToWithdraw);
+        Saving savingAccount = (Saving) account;
+        return (amount >= 0 && amount <= 1000 && !savingAccount.getMonthWithdrawal());
+    }
+
+    private boolean validateCDWithdraw(Account account, String amountToWithdraw) {
+        double amount = isDouble(amountToWithdraw);
+        double balance = account.getBalance();
+        return (amount >= balance);
+    }
+
+    private double isDouble(String str) {
         try {
             return Double.parseDouble(str);
         } catch (NumberFormatException e) {
             return -1;
         }
-    }
-
-    public static boolean validateChecking(String command, Bank bank) {
-
-        try {
-            Account account = bank.getAccount().get(command);
-            return account instanceof Checking;
-        } catch (ArrayIndexOutOfBoundsException e) {
-            return false;
-        }
-    }
-
-    public static boolean validateSaving(String command, Bank bank) {
-
-        try {
-            Account account = bank.getAccount().get(command);
-            return account instanceof Saving;
-        } catch (ArrayIndexOutOfBoundsException e) {
-            return false;
-        }
-    }
-
-    public static boolean validateCd(String command, Bank bank) {
-
-        try {
-            Account account = bank.getAccount().get(command);
-            return account instanceof CD;
-        } catch (ArrayIndexOutOfBoundsException e) {
-            return false;
-        }
-    }
-
-    public static boolean validateAccountExistInBank(String command, Bank bank) {
-        try {
-            return bank.getAccount().containsKey(command);
-        } catch (ArrayIndexOutOfBoundsException e) {
-            return false;
-        }
-    }
-
-    public boolean validate(String command) {
-        String[] tokens = command.split("\\s+");
-
-        if (validateAccountExistInBank(tokens[1], bank)) {
-            if (validateChecking(tokens[1], bank)) {
-                return withdrawCommandCheckingValidate(tokens[2]);
-            } else if (validateSaving(tokens[1], bank)) {
-                return withdrawCommandSavingValidate(tokens[2]) && validateMonth(tokens[1]);
-            } else if (validateCd(tokens[1], bank)) {
-                return withdrawCommandCdValidate(tokens[1]) && validateMonthTwelve(tokens[1]);
-            }
-        }
-        return false;
-    }
-
-
-    public boolean withdrawCommandCheckingValidate(String command) {
-        double amount = isDouble(command);
-        return (amount >= 0 && amount <= 400);
-    }
-
-    public boolean withdrawCommandSavingValidate(String command) {
-        double amount = isDouble(command);
-        return (amount >= 0 && amount <= 1000);
-    }
-
-    public boolean withdrawCommandCdValidate(String command) {
-        double amount = isDouble(command);
-        double balance = bank.getAccount().get(command).getBalance();
-        return amount >= balance;
     }
 
     public boolean validateMonthTwelve(String command) {
@@ -95,4 +82,3 @@ public class WithdrawValidator {
         return !account.getMonthWithdrawal();
     }
 }
-
