@@ -7,8 +7,54 @@ public class WithdrawValidator {
         this.bank = bank;
     }
 
+    public static double isDouble(String str) {
+        try {
+            return Double.parseDouble(str);
+        } catch (NumberFormatException e) {
+            return -1;
+        }
+    }
+
+    public static boolean validateChecking(String command, Bank bank) {
+
+        try {
+            Account account = bank.getAccount().get(command);
+            return account instanceof Checking;
+        } catch (ArrayIndexOutOfBoundsException e) {
+            return false;
+        }
+    }
+
+    public static boolean validateSaving(String command, Bank bank) {
+
+        try {
+            Account account = bank.getAccount().get(command);
+            return account instanceof Saving;
+        } catch (ArrayIndexOutOfBoundsException e) {
+            return false;
+        }
+    }
+
+    public static boolean validateCd(String command, Bank bank) {
+
+        try {
+            Account account = bank.getAccount().get(command);
+            return account instanceof CD;
+        } catch (ArrayIndexOutOfBoundsException e) {
+            return false;
+        }
+    }
+
+    public static boolean validateAccountExistInBank(String command, Bank bank) {
+        try {
+            return bank.getAccount().containsKey(command);
+        } catch (ArrayIndexOutOfBoundsException e) {
+            return false;
+        }
+    }
+
     public boolean validate(String command) {
-        String[] tokens = command.split(" ");
+        String[] tokens = command.split("\\s+");
 
         if (validateAccountExistInBank(tokens[1], bank)) {
             if (validateChecking(tokens[1], bank)) {
@@ -49,3 +95,4 @@ public class WithdrawValidator {
         return !account.getMonthWithdrawal();
     }
 }
+
