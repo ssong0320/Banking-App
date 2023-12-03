@@ -43,7 +43,7 @@ public abstract class Account {
             return balance;
         } else {
             balance = balance - amount;
-            return balance - amount;
+            return balance;
         }
     }
 
