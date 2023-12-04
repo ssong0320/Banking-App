@@ -77,8 +77,4 @@ public class WithdrawValidator {
         return number >= 12 && number % 12 == 0;
     }
 
-    public boolean validateMonth(String command) {
-        Saving account = (Saving) bank.getAccount().get(command);
-        return !account.getMonthWithdrawal();
-    }
 }
