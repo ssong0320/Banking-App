@@ -32,9 +32,10 @@ public class Bank {
         account.depositMoney(amount);
     }
 
-    public void withdrawThroughId(String id, double amount) {
+    public double withdrawThroughId(String id, double amount) {
         Account account = accounts.get(id);
         account.withdrawMoney(amount);
+        return amount;
     }
 
     public Account getAccountThroughBank(String id) {
@@ -63,5 +64,7 @@ public class Bank {
         }
     }
 
-
+    public void transfer(String fromId, String toId, double amount) {
+        accounts.get(toId).depositMoney(withdrawThroughId(fromId, amount));
+    }
 }
