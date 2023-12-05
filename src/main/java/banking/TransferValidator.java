@@ -10,7 +10,7 @@ public class TransferValidator {
     public boolean validate(String command) {
         String[] tokens = command.split("\\s+");
 
-        if (tokens.length < 4) {
+        if (tokens.length != 4) {
             return false;
         }
 
