@@ -33,7 +33,7 @@ public class CreateValidator {
                 }
                 break;
             case "checking":
-            case "saving":
+            case "savings":
                 if (tokens.length != 4) {
                     return false;
                 }

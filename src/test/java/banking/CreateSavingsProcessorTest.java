@@ -21,7 +21,7 @@ public class CreateSavingsProcessorTest {
         createSavingsProcessor.processCreateSaving("create saving 12345678 1.0");
         Account account = bank.getAccountThroughBank("12345678");
         assertEquals("12345678", account.getID());
-        assertEquals("saving", account.getAccountType());
+        assertEquals("savings", account.getAccountType());
         assertEquals(1.0, account.getAPR());
     }
 

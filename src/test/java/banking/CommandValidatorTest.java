@@ -23,19 +23,19 @@ public class CommandValidatorTest {
 
     @Test
     void test_create_command_with_lowercase_c() {
-        boolean actual = commandValidator.validate("create saving 12345678 1");
+        boolean actual = commandValidator.validate("create savings 12345678 1");
         assertTrue(actual);
     }
 
     @Test
     void test_create_command_with_typo() {
-        boolean actual = commandValidator.validate("creat saving 12345678 1");
+        boolean actual = commandValidator.validate("creat savings 12345678 1");
         assertFalse(actual);
     }
 
     @Test
     void test_create_command_is_valid() {
-        boolean actual = commandValidator.validate("Create saving 12345678 1");
+        boolean actual = commandValidator.validate("Create savings 12345678 1");
         assertTrue(actual);
     }
 

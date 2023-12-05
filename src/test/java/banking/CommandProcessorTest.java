@@ -36,10 +36,10 @@ public class CommandProcessorTest {
 
     @Test
     void test_if_saving_account_can_be_created_correctly() {
-        commandProcessor.evaluateCommand("create saving 12345678 1.0");
+        commandProcessor.evaluateCommand("create savings 12345678 1.0");
         Account account = bank.getAccountThroughBank("12345678");
         assertEquals("12345678", account.getID());
-        assertEquals("saving", account.getAccountType());
+        assertEquals("savings", account.getAccountType());
         assertEquals(1.0, account.getAPR());
     }
 
@@ -63,7 +63,7 @@ public class CommandProcessorTest {
 
     @Test
     void test_if_deposit_works_for_saving() {
-        commandProcessor.evaluateCommand("create saving 12345678 1.0");
+        commandProcessor.evaluateCommand("create savings 12345678 1.0");
         commandProcessor.evaluateCommand("deposit 12345678 1500");
         Account account = bank.getAccountThroughBank("12345678");
         assertEquals(1500, account.getBalance());

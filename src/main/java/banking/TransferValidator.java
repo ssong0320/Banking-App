@@ -32,7 +32,7 @@ public class TransferValidator {
         switch (sourceAccount.getAccountType()) {
             case "checking":
                 return validateCheckingTransfer(sourceAccount, amountToTransfer);
-            case "saving":
+            case "savings":
                 return validateSavingTransfer(sourceAccount, amountToTransfer) && validateMonth(sourceAccountID);
             default:
                 return false;

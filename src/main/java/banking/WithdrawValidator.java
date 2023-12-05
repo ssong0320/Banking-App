@@ -29,7 +29,7 @@ public class WithdrawValidator {
         switch (account.getAccountType()) {
             case "checking":
                 return validateCheckingWithdraw(amountToWithdraw);
-            case "saving":
+            case "savings":
                 return validateSavingWithdraw(account, amountToWithdraw);
             case "cd":
                 return validateCDWithdraw(account, amountToWithdraw) && validateMonthTwelve(tokens[1]);

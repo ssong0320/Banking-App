@@ -32,7 +32,7 @@ public class DepositValidator {
 
             String accountType = account.getAccountType().toLowerCase();
 
-            if ("saving".equals(accountType)) {
+            if ("savings".equals(accountType)) {
                 if (amount < 0 || amount > 2500) {
                     return false;
                 }

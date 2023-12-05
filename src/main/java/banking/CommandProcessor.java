@@ -30,7 +30,7 @@ public class CommandProcessor {
                 case "checking":
                     createCheckingProcessor.processCreateChecking(command);
                     break;
-                case "saving":
+                case "savings":
                     createSavingsProcessor.processCreateSaving(command);
                     break;
                 case "cd":

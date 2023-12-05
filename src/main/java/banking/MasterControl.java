@@ -17,11 +17,12 @@ public class MasterControl {
         for (String command : input) {
             if (commandValidator.validate(command)) {
                 commandProcessor.evaluateCommand(command);
+                storeCommands.addValidCommand(command);
             } else {
                 storeCommands.addInvalidCommand(command);
             }
         }
-        return storeCommands.getAllCommands();
+        return storeCommands.getOutput();
     }
 
 }

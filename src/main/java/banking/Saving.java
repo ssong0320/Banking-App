@@ -7,7 +7,7 @@ public class Saving extends Account {
 
     public Saving(double APR, String ID) {
         super(APR, 0, ID);
-        setAccountType("saving");
+        setAccountType("savings");
     }
 
     @Override
