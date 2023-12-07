@@ -57,4 +57,41 @@ public class AccountTest {
         double actual = checking.withdrawMoney(200.0);
         assertEquals(0.0, actual);
     }
+
+    @Test
+    void withdraw_leading_to_zero_balance() {
+        checking.depositMoney(50.0);
+        double initialBalance = checking.getBalance();
+
+        double withdrawnAmount = initialBalance;
+
+        double remainingBalance = checking.withdrawMoney(withdrawnAmount);
+        assertEquals(0.0, remainingBalance);
+    }
+
+    @Test
+    void verify_balance_after_withdrawal() {
+        double initialBalance = 100.0;
+        checking.depositMoney(initialBalance);
+
+        double withdrawnAmount = 30.0;
+        double remainingBalance = checking.withdrawMoney(withdrawnAmount);
+
+        assertEquals(initialBalance - withdrawnAmount, remainingBalance);
+    }
+
+    @Test
+    void calculate_apr_updates_age_correctly() {
+        int initialAge = 5;
+        checking.setMonths(initialAge);
+
+        int monthsToAdd = 3;
+        checking.calculateApr(monthsToAdd);
+
+        int expectedAge = initialAge + monthsToAdd;
+        int actualAge = checking.getMonths();
+
+        assertEquals(expectedAge, actualAge);
+    }
+
 }

@@ -38,7 +38,7 @@ public class WithdrawValidator {
         }
     }
 
-    private boolean isValidAccountID(String accountID) {
+    boolean isValidAccountID(String accountID) {
         try {
             int id = Integer.parseInt(accountID);
         } catch (NumberFormatException e) {
@@ -64,7 +64,7 @@ public class WithdrawValidator {
         return (amount >= balance);
     }
 
-    private double isDouble(String str) {
+    double isDouble(String str) {
         try {
             return Double.parseDouble(str);
         } catch (NumberFormatException e) {

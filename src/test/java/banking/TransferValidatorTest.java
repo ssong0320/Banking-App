@@ -12,6 +12,7 @@ public class TransferValidatorTest {
     Saving saving;
     Saving saving2;
     CD cd;
+    WithdrawValidator withdrawValidator;
     private TransferValidator transferValidator;
     private Bank bank;
 
@@ -24,6 +25,7 @@ public class TransferValidatorTest {
         saving2 = new Saving(0.01, "87654321");
         cd = new CD(0.01, 1000, "87654321");
         transferValidator = new TransferValidator(bank);
+        withdrawValidator = new WithdrawValidator(bank);
     }
 
     @Test
@@ -33,6 +35,19 @@ public class TransferValidatorTest {
         boolean actual = transferValidator.validate("transfer 12345678 87654321 100");
         assertTrue(actual);
     }
+
+    @Test
+    void invalid_source_account_ID() {
+        boolean actual = transferValidator.validate("transfer invalidSourceID 87654321 100");
+        assertFalse(actual);
+    }
+
+    @Test
+    void invalid_destination_account_ID() {
+        boolean actual = transferValidator.validate("transfer 12345678 invalidDestinationID 100");
+        assertFalse(actual);
+    }
+
 
     @Test
     void valid_transfer_saving_command() {
@@ -77,6 +92,14 @@ public class TransferValidatorTest {
         bank.addAccount(checking);
         bank.addAccount(saving2);
         boolean actual = transferValidator.validate("transfer 12345678 87654321 -1");
+        assertFalse(actual);
+    }
+
+    @Test
+    void invalid_command_transfer_with_wrong_id() {
+        bank.addAccount(checking);
+        bank.addAccount(saving2);
+        boolean actual = transferValidator.validate("transfer 12345679 87654321 -1");
         assertFalse(actual);
     }
 
@@ -269,4 +292,53 @@ public class TransferValidatorTest {
         bank.transfer("12345678", "87654321", 2500);
         assertEquals(2500, bank.getAccount().get("87654321").getBalance());
     }
+
+    @Test
+    void invalid_source_account_id() {
+        boolean actual = transferValidator.validate("transfer invalidSourceID 87654321 100");
+        assertFalse(actual);
+    }
+
+    @Test
+    void invalid_destination_account_id() {
+        boolean actual = transferValidator.validate("transfer 12345678 invalidDestinationID 100");
+        assertFalse(actual);
+    }
+
+    @Test
+    void valid_account_ID_length() {
+        boolean actual = withdrawValidator.isValidAccountID("12345678");
+        assertTrue(actual);
+    }
+
+    @Test
+    void invalid_account_ID_length() {
+        boolean actual = withdrawValidator.isValidAccountID("12345");
+        assertFalse(actual);
+    }
+
+    @Test
+    void invalid_account_ID_length_9() {
+        boolean actual = withdrawValidator.isValidAccountID("123456789");
+        assertFalse(actual);
+    }
+
+    @Test
+    void invalid_account_ID_length_7() {
+        boolean actual = withdrawValidator.isValidAccountID("1234567");
+        assertFalse(actual);
+    }
+
+    @Test
+    void invalid_account_ID_empty() {
+        boolean actual = withdrawValidator.isValidAccountID("");
+        assertFalse(actual);
+    }
+
+    @Test
+    void invalid_account_ID_format() {
+        boolean actual = withdrawValidator.isValidAccountID("1234567A");
+        assertFalse(actual);
+    }
+
 }

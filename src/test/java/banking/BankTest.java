@@ -74,4 +74,38 @@ public class BankTest {
         bank.withdrawThroughId("00000001", 30.0);
         assertEquals(20.0, saving.getBalance());
     }
+
+    @Test
+    void account_balance_reduced_under_100_and_above_0() {
+        Saving saving = new Saving(9.8, "00000001");
+        saving.depositMoney(50.0);
+
+        bank.addAccount(saving);
+        bank.pass(1);
+
+        assertEquals(25.204166666666666, saving.getBalance());
+    }
+
+    @Test
+    void account_balance_at_100() {
+        Saving saving = new Saving(9.8, "00000001");
+        saving.depositMoney(100.0);
+
+        bank.addAccount(saving);
+        bank.pass(1);
+
+        assertEquals(100.81666666666666, saving.getBalance());
+    }
+
+    @Test
+    void account_balance_below_0() {
+        Saving saving = new Saving(9.8, "00000001");
+        saving.depositMoney(50.0);
+        saving.withdrawMoney(60.0);
+
+        bank.addAccount(saving);
+        bank.pass(1);
+
+        assertEquals(0, saving.getBalance());
+    }
 }

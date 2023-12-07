@@ -4,6 +4,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 public class SavingTest {
 
@@ -23,4 +24,20 @@ public class SavingTest {
         assertEquals(0.0, actual);
     }
 
+    @Test
+    public void getMonthWithdrawal_InitiallyFalse() {
+        boolean actualWithdrawal = saving.getMonthWithdrawal();
+
+        assertFalse(actualWithdrawal);
+    }
+
+    @Test
+    public void getMonthWithdrawal_AfterSettingMonths() {
+        int currentAge = saving.getMonths();
+        saving.setMonths(currentAge + 1);
+
+        boolean actualWithdrawal = saving.getMonthWithdrawal();
+
+        assertFalse(actualWithdrawal);
+    }
 }

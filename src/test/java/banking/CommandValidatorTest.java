@@ -74,4 +74,25 @@ public class CommandValidatorTest {
         boolean actual = commandValidator.validate("deposit 00000001 -100");
         assertFalse(actual);
     }
+
+    @Test
+    void valid_withdrawal_command() {
+        bank.addAccount(checking);
+        boolean actual = commandValidator.validate("withdraw 00000000 100");
+        assertTrue(actual);
+    }
+
+    @Test
+    void invalid_command_withdrawal_typo() {
+        bank.addAccount(checking);
+        boolean actual = commandValidator.validate("withg 00000000 100");
+        assertFalse(actual);
+    }
+
+    @Test
+    void invalid_command_withdrawal_contain_number() {
+        bank.addAccount(checking);
+        boolean actual = commandValidator.validate("withdraw5 00000000 100");
+        assertFalse(actual);
+    }
 }

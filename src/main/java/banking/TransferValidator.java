@@ -67,6 +67,7 @@ public class TransferValidator {
         }
     }
 
+
     private boolean validateMonth(String command) {
         Saving account = (Saving) bank.getAccountThroughBank(command);
         return !account.getMonthWithdrawal();

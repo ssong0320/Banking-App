@@ -3,12 +3,12 @@ package banking;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class WithdrawValidatorTest {
 
     WithdrawValidator withdrawValidator;
+    WithdrawProcessor withdrawProcessor;
     Bank bank;
     Checking checking;
     Saving saving;
@@ -21,6 +21,7 @@ public class WithdrawValidatorTest {
         saving = new Saving(9.8, "12345678");
         cd = new CD(9.8, 1000, "12345678");
         withdrawValidator = new WithdrawValidator(bank);
+        withdrawProcessor = new WithdrawProcessor(bank);
     }
 
     @Test
@@ -212,5 +213,53 @@ public class WithdrawValidatorTest {
         assertFalse(actual);
     }
 
+    @Test
+    void testValidAccountIDLength() {
+        String validID = "12345678";
+        assertTrue(withdrawValidator.isValidAccountID(validID));
+    }
+
+    @Test
+    void testAccountIDLessThanEightDigits() {
+        String invalidID = "1234567";
+        assertFalse(withdrawValidator.isValidAccountID(invalidID));
+    }
+
+    @Test
+    void testAccountIDMoreThanEightDigits() {
+        String invalidID = "123456789";
+        assertFalse(withdrawValidator.isValidAccountID(invalidID));
+    }
+
+    @Test
+    void testAccountIDWithNonNumericCharacters() {
+        String invalidID = "12A45678";
+        assertFalse(withdrawValidator.isValidAccountID(invalidID));
+    }
+
+    @Test
+    void testInvalidAccountID() {
+        String invalidID = "invalid";
+        assertFalse(withdrawValidator.isValidAccountID(invalidID));
+    }
+
+    @Test
+    void testInvalidDouble() {
+        String invalidStr = "invalid";
+        double result = withdrawValidator.isDouble(invalidStr);
+        assertEquals(-1.0, result);
+    }
+
+    @Test
+    void unsupportedAccountType() {
+        bank.addAccount(new Account(0.0, 0.0, "00000000") {
+            @Override
+            public String getAccountType() {
+                return "unsupported";
+            }
+        });
+        boolean actual = withdrawValidator.validate("withdraw 00000000 100");
+        assertFalse(actual);
+    }
 
 }
