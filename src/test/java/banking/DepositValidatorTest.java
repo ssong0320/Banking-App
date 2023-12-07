@@ -156,6 +156,24 @@ public class DepositValidatorTest {
         boolean actual = depositValidator.validate("Deposit 12345678 1000");
         assertFalse(actual);
     }
+
+    @Test
+    void test_invalid_accountID_nonInteger() {
+        boolean actual = depositValidator.isValidAccountID("InvalidID");
+        assertFalse(actual);
+    }
+
+    @Test
+    void test_invalid_accountID_length_7() {
+        boolean actual = depositValidator.isValidAccountID("1234567");
+        assertFalse(actual);
+    }
+
+    @Test
+    void test_invalid_accountID_length_9() {
+        boolean actual = depositValidator.isValidAccountID("123456789");
+        assertFalse(actual);
+    }
 }
 
 

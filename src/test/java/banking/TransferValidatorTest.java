@@ -307,38 +307,45 @@ public class TransferValidatorTest {
 
     @Test
     void valid_account_ID_length() {
-        boolean actual = withdrawValidator.isValidAccountID("12345678");
+        boolean actual = transferValidator.isValidAccountID("12345678");
         assertTrue(actual);
     }
 
     @Test
     void invalid_account_ID_length() {
-        boolean actual = withdrawValidator.isValidAccountID("12345");
+        boolean actual = transferValidator.isValidAccountID("12345");
         assertFalse(actual);
     }
 
     @Test
     void invalid_account_ID_length_9() {
-        boolean actual = withdrawValidator.isValidAccountID("123456789");
+        boolean actual = transferValidator.isValidAccountID("123456789");
         assertFalse(actual);
     }
 
     @Test
     void invalid_account_ID_length_7() {
-        boolean actual = withdrawValidator.isValidAccountID("1234567");
+        boolean actual = transferValidator.isValidAccountID("1234567");
         assertFalse(actual);
     }
 
     @Test
     void invalid_account_ID_empty() {
-        boolean actual = withdrawValidator.isValidAccountID("");
+        boolean actual = transferValidator.isValidAccountID("");
         assertFalse(actual);
     }
 
     @Test
     void invalid_account_ID_format() {
-        boolean actual = withdrawValidator.isValidAccountID("1234567A");
+        boolean actual = transferValidator.isValidAccountID("1234567A");
         assertFalse(actual);
+    }
+
+    @Test
+    void test_Invalid_Double() {
+        String invalidStr = "invalid";
+        double result = transferValidator.isDouble(invalidStr);
+        assertEquals(-1.0, result);
     }
 
 }

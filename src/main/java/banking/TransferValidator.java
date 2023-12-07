@@ -39,7 +39,7 @@ public class TransferValidator {
         }
     }
 
-    private boolean isValidAccountID(String accountID) {
+    boolean isValidAccountID(String accountID) {
         try {
             int id = Integer.parseInt(accountID);
             return accountID.length() == 8;
@@ -59,7 +59,7 @@ public class TransferValidator {
         return (amount >= 0 && amount <= 1000 && !savingAccount.getMonthWithdrawal());
     }
 
-    private double isDouble(String str) {
+    double isDouble(String str) {
         try {
             return Double.parseDouble(str);
         } catch (NumberFormatException e) {

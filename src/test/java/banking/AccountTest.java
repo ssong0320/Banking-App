@@ -94,4 +94,15 @@ public class AccountTest {
         assertEquals(expectedAge, actualAge);
     }
 
+    @Test
+    void withdraw_more_than_balance() {
+        double initialBalance = 50.0;
+        checking.depositMoney(initialBalance);
+
+        double withdrawalAmount = 70.0;
+        double remainingBalance = checking.withdrawMoney(withdrawalAmount);
+
+        assertEquals(0, remainingBalance);
+    }
+
 }

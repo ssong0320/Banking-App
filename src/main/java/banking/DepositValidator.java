@@ -49,7 +49,7 @@ public class DepositValidator {
         return true;
     }
 
-    private boolean isValidAccountID(String accountID) {
+    boolean isValidAccountID(String accountID) {
         try {
             int id = Integer.parseInt(accountID);
         } catch (NumberFormatException e) {
