@@ -9,34 +9,30 @@ public class CreateValidator {
 
     public boolean validate(String command) {
         String[] tokens = command.split("\\s+");
-
         if (tokens.length < 4) {
             return false;
         }
-
         String accountType = tokens[1].toLowerCase();
-        String accountID = tokens[2];
-        String apr = tokens[3];
-
+        boolean isValid = true;
         switch (accountType) {
             case "cd":
                 if ((tokens.length != 5) || !checkAmount(tokens)) {
-                    return false;
+                    isValid = false;
                 }
                 break;
             case "checking":
             case "savings":
                 if (tokens.length != 4) {
-                    return false;
+                    isValid = false;
                 }
                 break;
             default:
-                return false;
+                isValid = false;
         }
-        if (!isValidAccountID(accountID) || !isValidAPR(apr)) {
-            return false;
+        if (!isValidAccountID(tokens[2]) || !isValidAPR(tokens[3])) {
+            isValid = false;
         }
-        return true;
+        return isValid;
     }
 
     private boolean checkAmount(String[] tokens) {
