@@ -18,17 +18,22 @@ public class CommandValidator {
     public boolean validate(String command) {
         String[] tokens = command.split("\\s+");
         String commandType = tokens[0].toLowerCase();
+        return validateDelegator(command, tokens, commandType);
+    }
+
+    private boolean validateDelegator(String command, String[] tokens, String commandType) {
+        boolean isValid = false;
         if ("create".equals(commandType)) {
-            return createValidator.validate(command);
+            isValid = createValidator.validate(command);
         } else if ("deposit".equals(commandType)) {
-            return depositValidator.validate(command);
+            isValid = depositValidator.validate(command);
         } else if ("pass".equals(commandType)) {
-            return passTimeValidator.validate(command);
+            isValid = passTimeValidator.validate(command);
         } else if ("withdraw".equals(commandType)) {
-            return withdrawValidator.validate(command);
+            isValid = withdrawValidator.validate(command);
         } else if ("transfer".equals(commandType)) {
-            return transferValidator.validate(command);
+            isValid = transferValidator.validate(command);
         }
-        return false;
+        return isValid;
     }
 }

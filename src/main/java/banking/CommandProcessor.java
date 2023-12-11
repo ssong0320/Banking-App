@@ -22,24 +22,12 @@ public class CommandProcessor {
     public void evaluateCommand(String command) {
         String[] tokens = command.split("\\s+");
         String commandType = tokens[0].toLowerCase();
+        processDelegator(tokens, command, commandType);
+    }
+
+    private void processDelegator(String[] tokens, String command, String commandType) {
         if ("create".equals(commandType)) {
-            String accountType = tokens[1].toLowerCase();
-            switch (accountType) {
-                case "checking":
-                    createCheckingProcessor.processCreateChecking(command);
-                    break;
-                case "savings":
-                    createSavingsProcessor.processCreateSaving(command);
-                    break;
-                case "cd":
-                    createCDProcessor.processCreateCD(command);
-
-                default:
-                    System.out.println("Invalid account type provided.");
-                    break;
-
-            }
-
+            processCreate(command, tokens);
         } else if ("deposit".equals(commandType)) {
             depositProcessor.processDeposit(command);
         } else if ("pass".equals(commandType)) {
@@ -51,4 +39,21 @@ public class CommandProcessor {
         }
     }
 
+    private void processCreate(String command, String[] tokens) {
+        String accountType = tokens[1].toLowerCase();
+        switch (accountType) {
+            case "checking":
+                createCheckingProcessor.processCreateChecking(command);
+                break;
+            case "savings":
+                createSavingsProcessor.processCreateSaving(command);
+                break;
+            case "cd":
+                createCDProcessor.processCreateCD(command);
+
+            default:
+                break;
+
+        }
+    }
 }

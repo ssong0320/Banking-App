@@ -20,15 +20,7 @@ public class CreateValidator {
 
         switch (accountType) {
             case "cd":
-                if (tokens.length != 5) {
-                    return false;
-                }
-                try {
-                    double cdBalance = Double.parseDouble(tokens[4]);
-                    if (cdBalance < 1000 || cdBalance > 10000) {
-                        return false;
-                    }
-                } catch (NumberFormatException e) {
+                if ((tokens.length != 5) || !checkAmount(tokens)) {
                     return false;
                 }
                 break;
@@ -41,10 +33,18 @@ public class CreateValidator {
             default:
                 return false;
         }
-        if (!isValidAccountID(accountID)) {
+        if (!isValidAccountID(accountID) || !isValidAPR(apr)) {
             return false;
         }
-        if (!isValidAPR(apr)) {
+        return true;
+    }
+
+    private boolean checkAmount(String[] tokens) {
+        try {
+            if ((Double.parseDouble(tokens[4]) < 1000 || Double.parseDouble(tokens[4]) > 10000)) {
+                return false;
+            }
+        } catch (NumberFormatException e) {
             return false;
         }
         return true;
@@ -77,6 +77,7 @@ public class CreateValidator {
         }
         return true;
     }
+
 }
 
 
