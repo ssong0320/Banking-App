@@ -1,7 +1,6 @@
 package banking;
 
 public class CommandProcessor {
-    private Bank bank;
     private CreateCDProcessor createCDProcessor;
     private CreateCheckingProcessor createCheckingProcessor;
     private CreateSavingsProcessor createSavingsProcessor;
@@ -11,7 +10,6 @@ public class CommandProcessor {
     private TransferProcessor transferProcessor;
 
     public CommandProcessor(Bank bank) {
-        this.bank = bank;
         this.createCDProcessor = new CreateCDProcessor(bank);
         this.createCheckingProcessor = new CreateCheckingProcessor(bank);
         this.createSavingsProcessor = new CreateSavingsProcessor(bank);
@@ -35,6 +33,11 @@ public class CommandProcessor {
                     break;
                 case "cd":
                     createCDProcessor.processCreateCD(command);
+
+                default:
+                    System.out.println("Invalid account type provided.");
+                    break;
+
             }
 
         } else if ("deposit".equals(commandType)) {

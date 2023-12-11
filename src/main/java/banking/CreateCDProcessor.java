@@ -3,8 +3,8 @@ package banking;
 public class CreateCDProcessor {
     private static Bank bank;
 
-    public CreateCDProcessor(Bank bank) {
-        this.bank = bank;
+    public CreateCDProcessor(Bank inputBank) {
+        CreateCDProcessor.bank = inputBank;
     }
 
     public static void processCreateCD(String command) {

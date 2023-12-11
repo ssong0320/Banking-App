@@ -65,7 +65,7 @@ public class CreateValidator {
 
     private boolean isValidAccountID(String accountID) {
         try {
-            int id = Integer.parseInt(accountID);
+            Integer.parseInt(accountID);
         } catch (NumberFormatException e) {
             return false;
         }

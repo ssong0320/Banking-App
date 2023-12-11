@@ -3,8 +3,8 @@ package banking;
 public class CreateCheckingProcessor {
     private static Bank bank;
 
-    public CreateCheckingProcessor(Bank bank) {
-        this.bank = bank;
+    public CreateCheckingProcessor(Bank inputBank) {
+        CreateCheckingProcessor.bank = inputBank;
     }
 
     public static void processCreateChecking(String command) {

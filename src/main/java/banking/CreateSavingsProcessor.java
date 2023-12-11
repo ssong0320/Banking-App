@@ -3,8 +3,8 @@ package banking;
 public class CreateSavingsProcessor {
     private static Bank bank;
 
-    public CreateSavingsProcessor(Bank bank) {
-        this.bank = bank;
+    public CreateSavingsProcessor(Bank inputBank) {
+        CreateSavingsProcessor.bank = inputBank;
     }
 
     public static void processCreateSaving(String command) {

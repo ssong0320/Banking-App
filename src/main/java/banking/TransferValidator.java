@@ -31,7 +31,7 @@ public class TransferValidator {
 
         switch (sourceAccount.getAccountType()) {
             case "checking":
-                return validateCheckingTransfer(sourceAccount, amountToTransfer);
+                return validateCheckingTransfer(amountToTransfer);
             case "savings":
                 return validateSavingTransfer(sourceAccount, amountToTransfer) && validateMonth(sourceAccountID);
             default:
@@ -41,14 +41,14 @@ public class TransferValidator {
 
     boolean isValidAccountID(String accountID) {
         try {
-            int id = Integer.parseInt(accountID);
+            Integer.parseInt(accountID);
             return accountID.length() == 8;
         } catch (NumberFormatException e) {
             return false;
         }
     }
 
-    private boolean validateCheckingTransfer(Account account, String amountToTransfer) {
+    private boolean validateCheckingTransfer(String amountToTransfer) {
         double amount = isDouble(amountToTransfer);
         return (amount >= 0 && amount <= 400);
     }

@@ -7,7 +7,7 @@ public abstract class Account {
     public String accountType;
     int age = 0;
 
-    public Account(double APR, double balance, String ID) {
+    protected Account(double APR, double balance, String ID) {
         this.APR = APR;
         this.balance = balance;
         this.ID = ID;
@@ -26,7 +26,8 @@ public abstract class Account {
     }
 
     public double depositMoney(double amount) {
-        return balance += amount;
+        balance = balance + amount;
+        return balance;
     }
 
     public String getAccountType() {
@@ -59,13 +60,17 @@ public abstract class Account {
         age = age + months;
 
         if (accountType.equalsIgnoreCase("cd")) {
-            for (int month = 0; month < months; month++) {
-                for (int calculation = 0; calculation < 4; calculation++) {
-                    balance = balance + ((APR / 100) / 12) * balance;
-                }
-            }
+            calculateCd(months);
         } else {
             for (int month = 0; month < months; month++) {
+                balance = balance + ((APR / 100) / 12) * balance;
+            }
+        }
+    }
+
+    private void calculateCd(int months) {
+        for (int month = 0; month < months; month++) {
+            for (int calculation = 0; calculation < 4; calculation++) {
                 balance = balance + ((APR / 100) / 12) * balance;
             }
         }

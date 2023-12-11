@@ -43,22 +43,35 @@ public class Bank {
     }
 
     public void pass(int months) {
-        List<String> accountClose = new ArrayList<>();
+        List<String> accountsToClose = updateAccountBalances(months);
+        closeAccounts(accountsToClose);
+    }
+
+    private List<String> updateAccountBalances(int months) {
+        List<String> accountsToClose = new ArrayList<>();
 
         for (String ID : accounts.keySet()) {
             Account account = accounts.get(ID);
-            if (account.balance < 100 && account.balance > 0) {
-                account.balance -= 25;
-            }
+            updateBalance(account);
 
             if (account.balance == 0) {
-                accountClose.add(ID);
-                continue;
+                accountsToClose.add(ID);
+            } else {
+                account.calculateApr(months);
             }
-            account.calculateApr(months);
         }
 
-        for (String ID : accountClose) {
+        return accountsToClose;
+    }
+
+    private void updateBalance(Account account) {
+        if (account.balance < 100 && account.balance > 0) {
+            account.balance -= 25;
+        }
+    }
+
+    private void closeAccounts(List<String> accountIDs) {
+        for (String ID : accountIDs) {
             accounts.remove(ID);
             accountOrder.remove(ID);
         }
