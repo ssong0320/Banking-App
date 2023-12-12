@@ -8,6 +8,7 @@ public class DepositValidator {
     }
 
     public boolean validate(String command) {
+        boolean isValid = true;
         String[] tokens = command.split("\\s+");
 
         if (tokens.length != 3) {
@@ -16,7 +17,6 @@ public class DepositValidator {
 
         String accountID = tokens[1];
         String amountStr = tokens[2];
-
 
         if (!isValidAccountID(accountID)) {
             return false;
@@ -27,26 +27,25 @@ public class DepositValidator {
             Account account = bank.getAccountThroughBank(accountID);
 
             if (account == null) {
-                return false;
-            }
-
-            String accountType = account.getAccountType().toLowerCase();
-
-            if ("savings".equals(accountType)) {
-                if (amount < 0 || amount > 2500) {
-                    return false;
-                }
-            } else if ("checking".equals(accountType)) {
-                if (amount < 0 || amount > 1000) {
-                    return false;
-                }
+                isValid = false;
             } else {
-                return false;
+                String accountType = account.getAccountType().toLowerCase();
+                isValid = validateAmountByAccountType(amount, accountType);
             }
         } catch (NumberFormatException e) {
+            isValid = false;
+        }
+        return isValid;
+    }
+
+    private boolean validateAmountByAccountType(double amount, String accountType) {
+        if ("savings".equals(accountType)) {
+            return amount >= 0 && amount <= 2500;
+        } else if ("checking".equals(accountType)) {
+            return amount >= 0 && amount <= 1000;
+        } else {
             return false;
         }
-        return true;
     }
 
     boolean isValidAccountID(String accountID) {
@@ -55,9 +54,6 @@ public class DepositValidator {
         } catch (NumberFormatException e) {
             return false;
         }
-        if (accountID.length() != 8) {
-            return false;
-        }
-        return true;
+        return accountID.length() == 8;
     }
 }
