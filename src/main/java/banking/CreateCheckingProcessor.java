@@ -8,8 +8,8 @@ public class CreateCheckingProcessor {
     }
 
     public static void processCreateChecking(String command) {
-        String[] tokens = command.split(" ");
-        Checking checking = new Checking(Double.parseDouble(tokens[3]), tokens[2]);
+        String[] args = command.split(" ");
+        Checking checking = new Checking(Double.parseDouble(args[3]), args[2]);
         bank.addAccount(checking);
     }
 }
