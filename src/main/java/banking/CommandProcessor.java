@@ -50,7 +50,7 @@ public class CommandProcessor {
                 break;
             case "cd":
                 createCDProcessor.processCreateCD(command);
-
+                break;
             default:
                 break;
 

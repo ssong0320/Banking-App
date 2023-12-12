@@ -9,31 +9,35 @@ public class TransferValidator {
 
     public boolean validate(String command) {
         String[] tokens = command.split("\\s+");
-
-        if (tokens.length != 4) {
+        if (!isCommandValid(tokens)) {
             return false;
         }
 
-        String sourceAccountID = tokens[1];
-        String destinationAccountID = tokens[2];
-        String amountToTransfer = tokens[3];
-
-        if (!isValidAccountID(sourceAccountID) || !isValidAccountID(destinationAccountID)) {
+        if (!areAccountsValid(tokens[1], tokens[2])) {
             return false;
         }
 
-        Account sourceAccount = bank.getAccountThroughBank(sourceAccountID);
-        Account destinationAccount = bank.getAccountThroughBank(destinationAccountID);
+        Account sourceAccount = bank.getAccountThroughBank(tokens[1]);
+        return isTransferValid(sourceAccount, tokens[3]);
+    }
 
-        if (sourceAccount == null || destinationAccount == null) {
-            return false;
-        }
+    private boolean isCommandValid(String[] tokens) {
+        return tokens.length == 4;
+    }
 
-        switch (sourceAccount.getAccountType()) {
+    private boolean areAccountsValid(String sourceAccountId, String destinationAccountId) {
+        return isValidAccountID(sourceAccountId) && isValidAccountID(destinationAccountId)
+                && bank.getAccountThroughBank(sourceAccountId) != null
+                && bank.getAccountThroughBank(destinationAccountId) != null;
+    }
+
+    private boolean isTransferValid(Account account, String amountToTransfer) {
+        String accountType = account.getAccountType();
+        switch (accountType) {
             case "checking":
                 return validateCheckingTransfer(amountToTransfer);
             case "savings":
-                return validateSavingTransfer(sourceAccount, amountToTransfer) && validateMonth(sourceAccountID);
+                return validateSavingTransfer(account, amountToTransfer) && validateMonth(account.getID());
             default:
                 return false;
         }

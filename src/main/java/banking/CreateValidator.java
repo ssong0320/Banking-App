@@ -12,27 +12,27 @@ public class CreateValidator {
         if (tokens.length < 4) {
             return false;
         }
+        if (!validateAccountType(tokens)) {
+            return false;
+        }
+        return validateCommonConditions(tokens);
+    }
+
+    private boolean validateAccountType(String[] tokens) {
         String accountType = tokens[1].toLowerCase();
-        boolean isValid = true;
         switch (accountType) {
             case "cd":
-                if ((tokens.length != 5) || !checkAmount(tokens)) {
-                    isValid = false;
-                }
-                break;
+                return tokens.length == 5 && checkAmount(tokens);
             case "checking":
             case "savings":
-                if (tokens.length != 4) {
-                    isValid = false;
-                }
-                break;
+                return tokens.length == 4;
             default:
-                isValid = false;
+                return false;
         }
-        if (!isValidAccountID(tokens[2]) || !isValidAPR(tokens[3])) {
-            isValid = false;
-        }
-        return isValid;
+    }
+
+    private boolean validateCommonConditions(String[] tokens) {
+        return isValidAccountID(tokens[2]) && isValidAPR(tokens[3]);
     }
 
     private boolean checkAmount(String[] tokens) {
@@ -75,5 +75,3 @@ public class CreateValidator {
     }
 
 }
-
-
