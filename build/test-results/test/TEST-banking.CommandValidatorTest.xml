@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="banking.CommandValidatorTest" tests="12" skipped="0" failures="0" errors="0" timestamp="2023-12-12T02:47:33" hostname="n3-13-222.dhcp.drexel.edu" time="0.006">
+  <properties/>
+  <testcase name="test_deposit_command()" classname="banking.CommandValidatorTest" time="0.003"/>
+  <testcase name="valid_withdrawal_command()" classname="banking.CommandValidatorTest" time="0.0"/>
+  <testcase name="invalid_command_withdrawal_typo()" classname="banking.CommandValidatorTest" time="0.0"/>
+  <testcase name="test_create_command_with_lowercase_c()" classname="banking.CommandValidatorTest" time="0.0"/>
+  <testcase name="test_create_command_with_typo()" classname="banking.CommandValidatorTest" time="0.0"/>
+  <testcase name="invalid_command_withdrawal_contain_number()" classname="banking.CommandValidatorTest" time="0.0"/>
+  <testcase name="test_deposit_command_with_a_typo()" classname="banking.CommandValidatorTest" time="0.0"/>
+  <testcase name="test_create_command_is_valid()" classname="banking.CommandValidatorTest" time="0.0"/>
+  <testcase name="test_negative_deposit_amount()" classname="banking.CommandValidatorTest" time="0.0"/>
+  <testcase name="test_deposit_non_existing_account()" classname="banking.CommandValidatorTest" time="0.0"/>
+  <testcase name="test_invalid_deposit_command()" classname="banking.CommandValidatorTest" time="0.0"/>
+  <testcase name="test_zero_deposit_amount()" classname="banking.CommandValidatorTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

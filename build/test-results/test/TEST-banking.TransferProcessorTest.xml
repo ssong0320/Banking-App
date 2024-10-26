@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="banking.TransferProcessorTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2023-12-12T02:47:33" hostname="n3-13-222.dhcp.drexel.edu" time="0.001">
+  <properties/>
+  <testcase name="transfer_from_checking_to_another_checking_account()" classname="banking.TransferProcessorTest" time="0.001"/>
+  <testcase name="transfer_from_saving_to_another_saving_account()" classname="banking.TransferProcessorTest" time="0.0"/>
+  <testcase name="transfer_from_checking_to_saving()" classname="banking.TransferProcessorTest" time="0.0"/>
+  <testcase name="transfer_from_saving_to_checking()" classname="banking.TransferProcessorTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

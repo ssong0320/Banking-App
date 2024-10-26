@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="banking.PassTimeProcessorTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2023-12-12T02:47:33" hostname="n3-13-222.dhcp.drexel.edu" time="0.001">
+  <properties/>
+  <testcase name="calculate_apr_after_twelve_month_checking_account()" classname="banking.PassTimeProcessorTest" time="0.001"/>
+  <testcase name="calculate_apr_after_one_month_checking_account()" classname="banking.PassTimeProcessorTest" time="0.0"/>
+  <testcase name="calculate_cd_account_apr_after_twelve_month()" classname="banking.PassTimeProcessorTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

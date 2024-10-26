@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="banking.CreateValidatorTest" tests="32" skipped="0" failures="0" errors="0" timestamp="2023-12-12T02:47:33" hostname="n3-13-222.dhcp.drexel.edu" time="0.008">
+  <properties/>
+  <testcase name="test_id_having_less_than_eight_digits()" classname="banking.CreateValidatorTest" time="0.0"/>
+  <testcase name="test_if_account_can_be_created_without_apr()" classname="banking.CreateValidatorTest" time="0.0"/>
+  <testcase name="test_if_cd_can_be_created_without_balance()" classname="banking.CreateValidatorTest" time="0.001"/>
+  <testcase name="test_case_insensitivity_for_account_for_cd()" classname="banking.CreateValidatorTest" time="0.0"/>
+  <testcase name="test_highest_apr_and_balance_for_cd()" classname="banking.CreateValidatorTest" time="0.0"/>
+  <testcase name="test_if_account_can_be_created_without_id_and_apr()" classname="banking.CreateValidatorTest" time="0.0"/>
+  <testcase name="test_if_duplicate_id_is_possible()" classname="banking.CreateValidatorTest" time="0.0"/>
+  <testcase name="test_if_cd_can_be_created_with_a_balance_under_one_thousand()" classname="banking.CreateValidatorTest" time="0.0"/>
+  <testcase name="test_if_savings_can_be_created_with_a_balance()" classname="banking.CreateValidatorTest" time="0.0"/>
+  <testcase name="test_if_apr_can_be_negative()" classname="banking.CreateValidatorTest" time="0.0"/>
+  <testcase name="test_if_id_is_valid_with_non_numbers_for_cd()" classname="banking.CreateValidatorTest" time="0.0"/>
+  <testcase name="test_id_having_less_than_eight_digits_for_cd()" classname="banking.CreateValidatorTest" time="0.0"/>
+  <testcase name="test_if_cd_can_be_created_without_account_type()" classname="banking.CreateValidatorTest" time="0.0"/>
+  <testcase name="test_invalid_account_type()" classname="banking.CreateValidatorTest" time="0.0"/>
+  <testcase name="test_invalid_account_type_cd()" classname="banking.CreateValidatorTest" time="0.0"/>
+  <testcase name="test_if_account_can_be_created_without_id_for_cd()" classname="banking.CreateValidatorTest" time="0.0"/>
+  <testcase name="test_if_apr_can_be_a_non_float()" classname="banking.CreateValidatorTest" time="0.0"/>
+  <testcase name="test_if_apr_can_be_negative_for_cd()" classname="banking.CreateValidatorTest" time="0.001"/>
+  <testcase name="test_id_having_more_than_eight_digits_for_cd()" classname="banking.CreateValidatorTest" time="0.0"/>
+  <testcase name="test_if_cd_can_be_created_with_a_balance_over_ten_thousand()" classname="banking.CreateValidatorTest" time="0.0"/>
+  <testcase name="test_if_apr_can_go_over_ten_for_cd()" classname="banking.CreateValidatorTest" time="0.001"/>
+  <testcase name="test_if_apr_can_go_over_ten()" classname="banking.CreateValidatorTest" time="0.0"/>
+  <testcase name="test_if_account_can_be_created_without_id()" classname="banking.CreateValidatorTest" time="0.0"/>
+  <testcase name="test_if_apr_can_be_a_non_float_for_cd()" classname="banking.CreateValidatorTest" time="0.0"/>
+  <testcase name="test_lowest_apr_and_balance_for_cd()" classname="banking.CreateValidatorTest" time="0.0"/>
+  <testcase name="test_if_account_can_be_created_without_apr_for_cd()" classname="banking.CreateValidatorTest" time="0.0"/>
+  <testcase name="test_if_only_a_single_account_can_be_created_at_once()" classname="banking.CreateValidatorTest" time="0.0"/>
+  <testcase name="test_case_insensitivity_for_account()" classname="banking.CreateValidatorTest" time="0.0"/>
+  <testcase name="test_if_id_is_valid_with_non_numbers()" classname="banking.CreateValidatorTest" time="0.0"/>
+  <testcase name="test_if_cd_can_be_created_with_a_negative_balance()" classname="banking.CreateValidatorTest" time="0.001"/>
+  <testcase name="test_id_having_more_than_eight_digits()" classname="banking.CreateValidatorTest" time="0.0"/>
+  <testcase name="test_if_account_can_be_created_without_id_and_apr_for_cd()" classname="banking.CreateValidatorTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

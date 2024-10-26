@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="banking.CreateCheckingProcessorTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-12-12T02:47:33" hostname="n3-13-222.dhcp.drexel.edu" time="0.0">
+  <properties/>
+  <testcase name="test_if_checking_account_can_be_created_correctly()" classname="banking.CreateCheckingProcessorTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

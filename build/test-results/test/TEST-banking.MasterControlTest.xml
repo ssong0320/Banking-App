@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="banking.MasterControlTest" tests="25" skipped="0" failures="0" errors="0" timestamp="2023-12-12T02:47:33" hostname="n3-13-222.dhcp.drexel.edu" time="0.006">
+  <properties/>
+  <testcase name="typo_in_withdraw_command_is_invalid()" classname="banking.MasterControlTest" time="0.0"/>
+  <testcase name="typo_in_pass_command_is_invalid()" classname="banking.MasterControlTest" time="0.0"/>
+  <testcase name="invalid_to_transfer_accounts_with_invalid_amount()" classname="banking.MasterControlTest" time="0.0"/>
+  <testcase name="invalid_to_create_accounts_with_same_ID()" classname="banking.MasterControlTest" time="0.0"/>
+  <testcase name="invalid_to_withdraw_accounts_with_invalid_amount()" classname="banking.MasterControlTest" time="0.0"/>
+  <testcase name="sample_make_sure_this_passes_unchanged_or_you_will_fail()" classname="banking.MasterControlTest" time="0.001"/>
+  <testcase name="typo_in_create_command_is_invalid()" classname="banking.MasterControlTest" time="0.0"/>
+  <testcase name="typo_in_transfer_command_is_invalid()" classname="banking.MasterControlTest" time="0.0"/>
+  <testcase name="invalid_to_create_saving_accounts_with_same_ID()" classname="banking.MasterControlTest" time="0.0"/>
+  <testcase name="invalid_to_pass_accounts_with_max_month()" classname="banking.MasterControlTest" time="0.0"/>
+  <testcase name="invalid_to_deposit_accounts_with_invalid_amount()" classname="banking.MasterControlTest" time="0.0"/>
+  <testcase name="invalid_to_pass_accounts_with_missing_pass()" classname="banking.MasterControlTest" time="0.0"/>
+  <testcase name="invalid_to_transfer_accounts_with_missing_amount()" classname="banking.MasterControlTest" time="0.0"/>
+  <testcase name="invalid_to_withdraw_accounts_with_missing_withdraw()" classname="banking.MasterControlTest" time="0.001"/>
+  <testcase name="invalid_to_withdraw_accounts_with_missing_amount()" classname="banking.MasterControlTest" time="0.0"/>
+  <testcase name="invalid_to_transfer_accounts_with_missing_id()" classname="banking.MasterControlTest" time="0.0"/>
+  <testcase name="invalid_to_deposit_accounts_with_missing_deposit()" classname="banking.MasterControlTest" time="0.0"/>
+  <testcase name="invalid_to_deposit_accounts_with_missing_id()" classname="banking.MasterControlTest" time="0.0"/>
+  <testcase name="typo_in_deposit_command_is_invalid()" classname="banking.MasterControlTest" time="0.0"/>
+  <testcase name="invalid_to_transfer_accounts_with_missing_transfer()" classname="banking.MasterControlTest" time="0.0"/>
+  <testcase name="two_typo_commands_both_invalid()" classname="banking.MasterControlTest" time="0.0"/>
+  <testcase name="invalid_to_pass_accounts_with_missing_month()" classname="banking.MasterControlTest" time="0.0"/>
+  <testcase name="invalid_to_deposit_accounts_with_missing_amount()" classname="banking.MasterControlTest" time="0.0"/>
+  <testcase name="invalid_to_create_cd_accounts_with_same_ID()" classname="banking.MasterControlTest" time="0.0"/>
+  <testcase name="invalid_to_withdraw_accounts_with_missing_id()" classname="banking.MasterControlTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

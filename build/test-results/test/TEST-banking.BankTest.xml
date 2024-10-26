@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="banking.BankTest" tests="11" skipped="0" failures="0" errors="0" timestamp="2023-12-12T02:47:33" hostname="n3-13-222.dhcp.drexel.edu" time="0.001">
+  <properties/>
+  <testcase name="account_balance_reduced_under_100_and_above_0()" classname="banking.BankTest" time="0.0"/>
+  <testcase name="account_balance_at_100()" classname="banking.BankTest" time="0.0"/>
+  <testcase name="test_add_two_accounts_to_bank()" classname="banking.BankTest" time="0.0"/>
+  <testcase name="test_add_account_to_bank()" classname="banking.BankTest" time="0.0"/>
+  <testcase name="deposit_money_through_bank()" classname="banking.BankTest" time="0.0"/>
+  <testcase name="withdraw_money_through_bank_twice()" classname="banking.BankTest" time="0.0"/>
+  <testcase name="account_balance_below_0()" classname="banking.BankTest" time="0.0"/>
+  <testcase name="test_bank_is_created_with_no_accounts()" classname="banking.BankTest" time="0.0"/>
+  <testcase name="withdraw_money_through_bank()" classname="banking.BankTest" time="0.0"/>
+  <testcase name="deposit_money_through_bank_twice()" classname="banking.BankTest" time="0.0"/>
+  <testcase name="test_getting_account_through_bank()" classname="banking.BankTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

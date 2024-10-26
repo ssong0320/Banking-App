@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="banking.StoreCommandsTest" tests="11" skipped="0" failures="0" errors="0" timestamp="2023-12-12T02:47:33" hostname="n3-13-222.dhcp.drexel.edu" time="0.017">
+  <properties/>
+  <testcase name="store_invalid_create_checking_command()" classname="banking.StoreCommandsTest" time="0.0"/>
+  <testcase name="store_two_valid_command_transaction_history()" classname="banking.StoreCommandsTest" time="0.0"/>
+  <testcase name="output_one_account_state()" classname="banking.StoreCommandsTest" time="0.013"/>
+  <testcase name="output_two_account_state()" classname="banking.StoreCommandsTest" time="0.0"/>
+  <testcase name="output_one_checking_account_with_single_transaction_history()" classname="banking.StoreCommandsTest" time="0.0"/>
+  <testcase name="store_two_valid_command()" classname="banking.StoreCommandsTest" time="0.0"/>
+  <testcase name="store_valid_command_transaction_history()" classname="banking.StoreCommandsTest" time="0.0"/>
+  <testcase name="output_account_state_with_invalid_command()" classname="banking.StoreCommandsTest" time="0.0"/>
+  <testcase name="output_account_with_twice_transaction_history()" classname="banking.StoreCommandsTest" time="0.0"/>
+  <testcase name="store_two_invalid_command()" classname="banking.StoreCommandsTest" time="0.0"/>
+  <testcase name="store_valid_deposit_command()" classname="banking.StoreCommandsTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="banking.DepositValidatorTest" tests="25" skipped="0" failures="0" errors="0" timestamp="2023-12-12T02:47:33" hostname="n3-13-222.dhcp.drexel.edu" time="0.007">
+  <properties/>
+  <testcase name="test_if_negative_amount_just_below_lower_limit_is_rejected_saving()" classname="banking.DepositValidatorTest" time="0.0"/>
+  <testcase name="test_if_deposit_possible_when_id_has_missing_digits()" classname="banking.DepositValidatorTest" time="0.001"/>
+  <testcase name="test_if_amount_over_two_thousand_five_hundred_can_be_deposited_into_saving()" classname="banking.DepositValidatorTest" time="0.0"/>
+  <testcase name="test_if_you_can_deposit_multiple_times_in_an_account()" classname="banking.DepositValidatorTest" time="0.0"/>
+  <testcase name="test_if_deposit_possible_when_id_has_extra_digits()" classname="banking.DepositValidatorTest" time="0.0"/>
+  <testcase name="test_if_can_deposit_zero_into_existing_account_checking()" classname="banking.DepositValidatorTest" time="0.0"/>
+  <testcase name="test_depositing_into_account_that_does_not_exist()" classname="banking.DepositValidatorTest" time="0.0"/>
+  <testcase name="test_if_negative_amount_just_below_lower_limit_is_rejected_checking()" classname="banking.DepositValidatorTest" time="0.0"/>
+  <testcase name="test_if_money_can_be_deposited_into_cd()" classname="banking.DepositValidatorTest" time="0.0"/>
+  <testcase name="test_if_can_deposit_into_non_existing_account()" classname="banking.DepositValidatorTest" time="0.0"/>
+  <testcase name="test_if_deposit_command_is_case_insensitive()" classname="banking.DepositValidatorTest" time="0.0"/>
+  <testcase name="test_if_missing_amount_fails()" classname="banking.DepositValidatorTest" time="0.001"/>
+  <testcase name="test_if_missing_id_fails()" classname="banking.DepositValidatorTest" time="0.0"/>
+  <testcase name="test_if_amount_over_one_thousand_can_be_deposited_into_checking()" classname="banking.DepositValidatorTest" time="0.0"/>
+  <testcase name="test_invalid_accountID_length_7()" classname="banking.DepositValidatorTest" time="0.0"/>
+  <testcase name="test_invalid_accountID_length_9()" classname="banking.DepositValidatorTest" time="0.001"/>
+  <testcase name="test_if_amount_at_upper_limit_can_be_deposited_into_checking()" classname="banking.DepositValidatorTest" time="0.0"/>
+  <testcase name="test_if_can_deposit_zero_into_existing_account_cd()" classname="banking.DepositValidatorTest" time="0.0"/>
+  <testcase name="test_if_can_deposit_zero_into_existing_account_saving()" classname="banking.DepositValidatorTest" time="0.0"/>
+  <testcase name="test_if_can_deposit_negative_amount_for_savings()" classname="banking.DepositValidatorTest" time="0.0"/>
+  <testcase name="test_if_amount_at_upper_limit_can_be_deposited_into_saving()" classname="banking.DepositValidatorTest" time="0.0"/>
+  <testcase name="test_if_can_deposit_into_existing_account()" classname="banking.DepositValidatorTest" time="0.0"/>
+  <testcase name="test_if_missing_deposit_fails()" classname="banking.DepositValidatorTest" time="0.0"/>
+  <testcase name="test_invalid_accountID_nonInteger()" classname="banking.DepositValidatorTest" time="0.001"/>
+  <testcase name="test_if_can_deposit_negative_amount_for_checking()" classname="banking.DepositValidatorTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

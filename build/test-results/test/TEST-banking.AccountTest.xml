@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="banking.AccountTest" tests="10" skipped="0" failures="0" errors="0" timestamp="2023-12-12T02:47:33" hostname="n3-13-222.dhcp.drexel.edu" time="0.002">
+  <properties/>
+  <testcase name="verify_balance_after_withdrawal()" classname="banking.AccountTest" time="0.0"/>
+  <testcase name="test_withdrawing_money()" classname="banking.AccountTest" time="0.0"/>
+  <testcase name="deposit_money_twice()" classname="banking.AccountTest" time="0.0"/>
+  <testcase name="test_balance_does_not_go_below_zero()" classname="banking.AccountTest" time="0.0"/>
+  <testcase name="withdraw_leading_to_zero_balance()" classname="banking.AccountTest" time="0.0"/>
+  <testcase name="deposit_money()" classname="banking.AccountTest" time="0.0"/>
+  <testcase name="apr_value_is_the_supplied_value()" classname="banking.AccountTest" time="0.0"/>
+  <testcase name="calculate_apr_updates_age_correctly()" classname="banking.AccountTest" time="0.0"/>
+  <testcase name="test_withdrawing_money_twice()" classname="banking.AccountTest" time="0.0"/>
+  <testcase name="withdraw_more_than_balance()" classname="banking.AccountTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="banking.TransferValidatorTest" tests="42" skipped="0" failures="0" errors="0" timestamp="2023-12-12T02:47:33" hostname="n3-13-222.dhcp.drexel.edu" time="0.008">
+  <properties/>
+  <testcase name="invalid_command_transfer_to_two_checking_account_negative_dollar()" classname="banking.TransferValidatorTest" time="0.0"/>
+  <testcase name="invalid_command_transfer_to_more_than_two_checking_account_four_hundred_dollar()" classname="banking.TransferValidatorTest" time="0.0"/>
+  <testcase name="valid_transfer_checking_command()" classname="banking.TransferValidatorTest" time="0.0"/>
+  <testcase name="valid_command_transfer_to_two_saving_account_one_dollar()" classname="banking.TransferValidatorTest" time="0.0"/>
+  <testcase name="valid_command_transfer_to_two_checking_account_zero_dollar()" classname="banking.TransferValidatorTest" time="0.001"/>
+  <testcase name="valid_command_transfer_to_two_checking_account_one_dollar()" classname="banking.TransferValidatorTest" time="0.0"/>
+  <testcase name="invalid_command_cannot_transfer_max_checking_account_amount()" classname="banking.TransferValidatorTest" time="0.0"/>
+  <testcase name="valid_command_transfer_one_amount()" classname="banking.TransferValidatorTest" time="0.0"/>
+  <testcase name="valid_command_transfer_zero_amount()" classname="banking.TransferValidatorTest" time="0.0"/>
+  <testcase name="invalid_account_ID_length_7()" classname="banking.TransferValidatorTest" time="0.0"/>
+  <testcase name="invalid_account_ID_length_9()" classname="banking.TransferValidatorTest" time="0.0"/>
+  <testcase name="valid_command_transfer_to_two_checking_account_four_hundred_dollar()" classname="banking.TransferValidatorTest" time="0.0"/>
+  <testcase name="invalid_amount_contain_letter_command()" classname="banking.TransferValidatorTest" time="0.0"/>
+  <testcase name="invalid_missing_from_id_command()" classname="banking.TransferValidatorTest" time="0.0"/>
+  <testcase name="valid_account_ID_length()" classname="banking.TransferValidatorTest" time="0.0"/>
+  <testcase name="test_Invalid_Double()" classname="banking.TransferValidatorTest" time="0.0"/>
+  <testcase name="invalid_command_transfer_to_two_saving_account_negative_dollar()" classname="banking.TransferValidatorTest" time="0.0"/>
+  <testcase name="valid_command_transfer_to_two_saving_account_four_hundred_dollar()" classname="banking.TransferValidatorTest" time="0.001"/>
+  <testcase name="valid_command_saving_transfer_zero_amount()" classname="banking.TransferValidatorTest" time="0.0"/>
+  <testcase name="valid_command_saving_transfer_one_amount()" classname="banking.TransferValidatorTest" time="0.0"/>
+  <testcase name="invalid_command_transfer_negative_amount()" classname="banking.TransferValidatorTest" time="0.0"/>
+  <testcase name="invalid_missing_transfer_command()" classname="banking.TransferValidatorTest" time="0.0"/>
+  <testcase name="invalid_missing_to_id_command()" classname="banking.TransferValidatorTest" time="0.0"/>
+  <testcase name="invalid_command_transfer_to_cd_account()" classname="banking.TransferValidatorTest" time="0.0"/>
+  <testcase name="invalid_command_transfer_with_wrong_id()" classname="banking.TransferValidatorTest" time="0.0"/>
+  <testcase name="invalid_command_transfer_from_cd_account()" classname="banking.TransferValidatorTest" time="0.0"/>
+  <testcase name="valid_command_transfer_max_checking_account_amount()" classname="banking.TransferValidatorTest" time="0.0"/>
+  <testcase name="valid_command_transfer_to_two_saving_account_zero_dollar()" classname="banking.TransferValidatorTest" time="0.0"/>
+  <testcase name="invalid_source_account_ID()" classname="banking.TransferValidatorTest" time="0.0"/>
+  <testcase name="invalid_source_account_id()" classname="banking.TransferValidatorTest" time="0.0"/>
+  <testcase name="invalid_command_saving_transfer_negative_amount()" classname="banking.TransferValidatorTest" time="0.0"/>
+  <testcase name="valid_command_saving_transfer_max_amount()" classname="banking.TransferValidatorTest" time="0.0"/>
+  <testcase name="invalid_account_ID_empty()" classname="banking.TransferValidatorTest" time="0.0"/>
+  <testcase name="valid_transfer_saving_command()" classname="banking.TransferValidatorTest" time="0.0"/>
+  <testcase name="invalid_destination_account_ID()" classname="banking.TransferValidatorTest" time="0.0"/>
+  <testcase name="invalid_destination_account_id()" classname="banking.TransferValidatorTest" time="0.0"/>
+  <testcase name="invalids_command_transfer_to_more_than_two_saving_account_four_hundred_dollar()" classname="banking.TransferValidatorTest" time="0.0"/>
+  <testcase name="invalid_account_ID_format()" classname="banking.TransferValidatorTest" time="0.0"/>
+  <testcase name="invalid_command_transfer_to_more_than_two_saving_account_four_hundred_dollar()" classname="banking.TransferValidatorTest" time="0.0"/>
+  <testcase name="invalid_missing_amount_command()" classname="banking.TransferValidatorTest" time="0.001"/>
+  <testcase name="invalid_account_ID_length()" classname="banking.TransferValidatorTest" time="0.0"/>
+  <testcase name="invalid_command_saving_cannot_transfer_max_amount()" classname="banking.TransferValidatorTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

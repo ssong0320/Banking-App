@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="banking.CommandProcessorTest" tests="19" skipped="0" failures="0" errors="0" timestamp="2023-12-12T02:47:33" hostname="n3-13-222.dhcp.drexel.edu" time="0.016">
+  <properties/>
+  <testcase name="transfer_from_checking_to_another_checking_account()" classname="banking.CommandProcessorTest" time="0.008"/>
+  <testcase name="withdrawal_once_from_saving()" classname="banking.CommandProcessorTest" time="0.0"/>
+  <testcase name="test_if_saving_account_can_be_created_correctly()" classname="banking.CommandProcessorTest" time="0.0"/>
+  <testcase name="transfer_from_saving_to_another_saving_account()" classname="banking.CommandProcessorTest" time="0.001"/>
+  <testcase name="calculate_apr_after_twelve_month_checking_account()" classname="banking.CommandProcessorTest" time="0.0"/>
+  <testcase name="test_if_deposit_works_for_checking()" classname="banking.CommandProcessorTest" time="0.001"/>
+  <testcase name="calculate_apr_after_one_month_checking_account()" classname="banking.CommandProcessorTest" time="0.0"/>
+  <testcase name="withdrawal_once_from_checking()" classname="banking.CommandProcessorTest" time="0.0"/>
+  <testcase name="test_if_cd_account_can_be_created_correctly()" classname="banking.CommandProcessorTest" time="0.0"/>
+  <testcase name="withdrawal_twice_from_cd()" classname="banking.CommandProcessorTest" time="0.0"/>
+  <testcase name="withdrawal_twice_from_checking()" classname="banking.CommandProcessorTest" time="0.0"/>
+  <testcase name="test_if_deposit_works_for_saving()" classname="banking.CommandProcessorTest" time="0.0"/>
+  <testcase name="test_if_deposit_works_for_cd()" classname="banking.CommandProcessorTest" time="0.0"/>
+  <testcase name="withdrawal_once_from_cd()" classname="banking.CommandProcessorTest" time="0.001"/>
+  <testcase name="transfer_from_checking_to_saving()" classname="banking.CommandProcessorTest" time="0.0"/>
+  <testcase name="calculate_cd_account_apr_after_twelve_month()" classname="banking.CommandProcessorTest" time="0.001"/>
+  <testcase name="transfer_from_saving_to_checking()" classname="banking.CommandProcessorTest" time="0.0"/>
+  <testcase name="withdrawal_twice_from_saving()" classname="banking.CommandProcessorTest" time="0.0"/>
+  <testcase name="test_if_checking_account_can_be_created_correctly()" classname="banking.CommandProcessorTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
